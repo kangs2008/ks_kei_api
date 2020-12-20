@@ -1,0 +1,101 @@
+2020-12-20 12:56:02,188 LOG INFO runner_html.py-64 line：----------传入参数<--file>,测试excel：D:\desk20201127\ks\Datas\test_apidata.xlsx
+2020-12-20 12:56:02,188 LOG INFO runner_html.py-65 line：----------传入参数<--sheet>,测试excel sheet name：None
+2020-12-20 12:56:02,188 LOG INFO runner_html.py-66 line：----------传入参数<--folder>,测试文件或文件夹的文件：None
+2020-12-20 12:56:02,188 LOG INFO runner_html.py-69 line：测试报告文件夹：D:\desk20201127\ks\Report\2020-12-20_12-56-02
+2020-12-20 12:56:04,088 LOG INFO conftest.py-15 line：****************************************************************************************************
+2020-12-20 12:56:04,088 LOG INFO conftest.py-16 line：********************测试执行开始********************
+2020-12-20 12:56:04,088 LOG INFO conftest.py-20 line：----------requests_session setup----------
+2020-12-20 12:56:04,088 LOG INFO conftest.py-21 line：获取session：<requests.sessions.Session object at 0x00000197E67D2348>
+2020-12-20 12:56:04,188 LOG INFO test_api3.py-41 line：执行测试套件: TestAPI
+2020-12-20 12:56:04,188 LOG INFO test_api3.py-42 line：执行测试用例: t_接
+2020-12-20 12:56:04,188 LOG INFO test_api3.py-72 line：测试功能是：充1
+2020-12-20 12:56:04,188 LOG INFO test_api3.py-89 line：测试数据是:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+2020-12-20 12:56:04,188 LOG INFO apiKeyWords3.py-124 line：执行函数:seturl
+2020-12-20 12:56:04,188 LOG INFO apiKeyWords3.py-140 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+2020-12-20 12:56:04,188 LOG INFO apiKeyWords3.py-135 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2020-12-20 12:56:04,198 LOG INFO test_api3.py-58 line：函数返回值：None
+2020-12-20 12:56:04,198 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[addheader], input:[token], request_data:[]】
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-109 line：执行函数:addheader
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-111 line：headers_key:[token]
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-112 line：headers_value_before:[]
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-113 line：headers_value_after(__get_relations)[None]
+2020-12-20 12:56:04,198 LOG INFO test_api3.py-58 line：函数返回值：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': None}
+2020-12-20 12:56:04,198 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[post], input:[auth], request_data:[]】
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-144 line：执行函数:【'post'】
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-140 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-140 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': None}]
+2020-12-20 12:56:04,198 LOG INFO apiKeyWords3.py-140 line：值是：请求参数:[None]
+2020-12-20 12:56:04,538 LOG INFO apiKeyWords3.py-140 line：值是：返回值:[{'status': 200, 'msg': 'success', 'token': 'd717b3ed79a848ff94f1e81b1b04d00b'}]
+2020-12-20 12:56:04,538 LOG INFO test_api3.py-58 line：函数返回值：{'status': 200, 'msg': 'success', 'token': 'd717b3ed79a848ff94f1e81b1b04d00b'}
+2020-12-20 12:56:04,538 LOG INFO test_api3.py-72 line：测试功能是：充2
+2020-12-20 12:56:04,538 LOG INFO test_api3.py-89 line：测试数据是:【title:[充2], method:[savejson], input:[token], request_data:[token]】
+2020-12-20 12:56:04,538 LOG INFO apiKeyWords3.py-96 line：执行函数:savejson
+2020-12-20 12:56:04,538 LOG INFO apiKeyWords3.py-99 line：relations_key:[token]
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-100 line：jsonres_key:[token]
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-101 line：self.relations[token] = self.jsonres[token]
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-140 line：值是：d717b3ed79a848ff94f1e81b1b04d00b
+2020-12-20 12:56:04,548 LOG INFO test_api3.py-58 line：函数返回值：{'token': 'd717b3ed79a848ff94f1e81b1b04d00b'}
+2020-12-20 12:56:04,548 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[addheader], input:[token], request_data:[{token}]】
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-109 line：执行函数:addheader
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-111 line：headers_key:[token]
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-112 line：headers_value_before:[{token}]
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-113 line：headers_value_after(__get_relations)[d717b3ed79a848ff94f1e81b1b04d00b]
+2020-12-20 12:56:04,548 LOG INFO test_api3.py-58 line：函数返回值：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': 'd717b3ed79a848ff94f1e81b1b04d00b'}
+2020-12-20 12:56:04,548 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "123456", "nickname":"熊明"}]】
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-144 line：执行函数:【'post'】
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-140 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2020-12-20 12:56:04,548 LOG INFO apiKeyWords3.py-140 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': 'd717b3ed79a848ff94f1e81b1b04d00b'}]
+2020-12-20 12:56:04,558 LOG INFO apiKeyWords3.py-140 line：值是：请求参数:[{'username': '', 'pwd': '123456', 'nickname': '熊明'}]
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-140 line：值是：返回值:[{'status': 402, 'msg': '参数错误'}]
+2020-12-20 12:56:04,588 LOG INFO test_api3.py-58 line：函数返回值：{'status': 402, 'msg': '参数错误'}
+2020-12-20 12:56:04,588 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[assertequals], input:[status], request_data:[200]】
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-61 line：执行函数:assertequals
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-71 line：input key:[status]
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-72 line：ACTUAL_VALUE:[402]
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-73 line：EXPECT_VALUE:[200]
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-140 line：值是：FAIL
+2020-12-20 12:56:04,588 LOG INFO apiKeyWords3.py-79 line：--Fail--用例失败--
+2020-12-20 12:56:04,588 LOG ERROR apiKeyWords3.py-80 line：
+Traceback (most recent call last):
+  File "D:\desk20201127\ks\api\apikeywords\apiKeyWords3.py", line 76, in assertequals
+    assert actual_value == expect_value
+AssertionError
+2020-12-20 12:56:04,598 LOG INFO test_api3.py-58 line：函数返回值：FAIL
+2020-12-20 12:56:04,598 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "126", "nickname":"熊明"}]】
+2020-12-20 12:56:04,598 LOG INFO apiKeyWords3.py-144 line：执行函数:【'post'】
+2020-12-20 12:56:04,598 LOG INFO apiKeyWords3.py-140 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2020-12-20 12:56:04,598 LOG INFO apiKeyWords3.py-140 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': 'd717b3ed79a848ff94f1e81b1b04d00b'}]
+2020-12-20 12:56:04,598 LOG INFO apiKeyWords3.py-140 line：值是：请求参数:[{'username': '', 'pwd': '126', 'nickname': '熊明'}]
+2020-12-20 12:56:04,628 LOG INFO apiKeyWords3.py-140 line：值是：返回值:[{'status': 402, 'msg': '参数错误'}]
+2020-12-20 12:56:04,628 LOG INFO test_api3.py-58 line：函数返回值：{'status': 402, 'msg': '参数错误'}
+2020-12-20 12:56:04,628 LOG INFO test_api3.py-89 line：测试数据是:【title:[], method:[assertequals], input:[status], request_data:[402]】
+2020-12-20 12:56:04,628 LOG INFO apiKeyWords3.py-61 line：执行函数:assertequals
+2020-12-20 12:56:04,628 LOG INFO apiKeyWords3.py-71 line：input key:[status]
+2020-12-20 12:56:04,638 LOG INFO apiKeyWords3.py-72 line：ACTUAL_VALUE:[402]
+2020-12-20 12:56:04,638 LOG INFO apiKeyWords3.py-73 line：EXPECT_VALUE:[402]
+2020-12-20 12:56:04,638 LOG INFO apiKeyWords3.py-140 line：值是：PASS
+2020-12-20 12:56:04,638 LOG INFO apiKeyWords3.py-86 line：--成功--
+2020-12-20 12:56:04,638 LOG INFO test_api3.py-58 line：函数返回值：PASS
+2020-12-20 12:56:04,738 LOG INFO test_api3.py-67 line：写入Excel：save_excel_teardown
+2020-12-20 12:56:04,738 LOG INFO conftest.py-24 line：销毁session：<requests.sessions.Session object at 0x00000197E67D2348>
+2020-12-20 12:56:04,738 LOG INFO conftest.py-25 line：----------requests_session teardown----------
+2020-12-20 12:56:04,738 LOG INFO conftest.py-28 line：********************测试执行结束********************
+2020-12-20 12:56:04,738 LOG INFO conftest.py-29 line：****************************************************************************************************
+2020-12-20 12:56:04,738 LOG INFO conftest.py-15 line：****************************************************************************************************
+2020-12-20 12:56:04,748 LOG INFO conftest.py-16 line：********************测试执行开始********************
+2020-12-20 12:56:04,748 LOG INFO conftest.py-20 line：----------requests_session setup----------
+2020-12-20 12:56:04,748 LOG INFO conftest.py-21 line：获取session：<requests.sessions.Session object at 0x00000197E67D3948>
+2020-12-20 12:56:04,848 LOG INFO test_api3.py-41 line：执行测试套件: TestAPI
+2020-12-20 12:56:04,848 LOG INFO test_api3.py-42 line：执行测试用例: t_接口222222
+2020-12-20 12:56:04,848 LOG INFO test_api3.py-72 line：测试功能是：系统1
+2020-12-20 12:56:04,848 LOG INFO test_api3.py-89 line：测试数据是:【title:[系统1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+2020-12-20 12:56:04,848 LOG INFO apiKeyWords3.py-124 line：执行函数:seturl
+2020-12-20 12:56:04,848 LOG INFO apiKeyWords3.py-140 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+2020-12-20 12:56:04,848 LOG INFO apiKeyWords3.py-135 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2020-12-20 12:56:04,848 LOG INFO test_api3.py-58 line：函数返回值：None
+2020-12-20 12:56:04,890 LOG INFO test_api3.py-67 line：写入Excel：save_excel_teardown
+2020-12-20 12:56:04,890 LOG INFO conftest.py-24 line：销毁session：<requests.sessions.Session object at 0x00000197E67D3948>
+2020-12-20 12:56:04,890 LOG INFO conftest.py-25 line：----------requests_session teardown----------
+2020-12-20 12:56:04,890 LOG INFO conftest.py-28 line：********************测试执行结束********************
+2020-12-20 12:56:04,890 LOG INFO conftest.py-29 line：****************************************************************************************************
+2020-12-20 12:56:05,010 LOG INFO runner_html.py-82 line：测试使用时间 0:00:02

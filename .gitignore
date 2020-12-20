@@ -1,0 +1,6 @@
+/.idea
+/.pytest_cache
+/venv
+/temp
+/__pycache__
+*.zip

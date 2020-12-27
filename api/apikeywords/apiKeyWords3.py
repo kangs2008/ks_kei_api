@@ -1,6 +1,7 @@
 import json, sys
-
+import re
 import allure
+import jsonpath
 from Common.utils import mTime
 from Common.handle_logger import logger
 from Common.excel_api import excel_to_case, load_excel, excel_to_save, write_to_excel3
@@ -57,6 +58,115 @@ class Http():
             with allure.step(f"对比结果：{str_fail}"):
                 # logger.info(f"对比结果：{str_fail}")
                 pass
+
+
+
+    def assertJsonpath(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+        # key = str(data['input']).strip()
+        dList = str(data['input']).strip().split(',')
+        d1 = dList[0]
+        d2 = dList[1]
+        result_to_json = json.dumps(self.jsonres)
+        with allure.step(
+                f"[{mTime()}]['assertInRe'][expect_key:{d1},expect_value:{d2}][actual_value:{self.jsonres}]"):
+            logger.info(f"expect_key:{d1}")
+            logger.info(f"EXPECT_VALUE:[{d2}]")
+            try:
+                res = jsonpath.jsonpath(result_to_json, f'$..{d1}') # 找不到是结果是 False
+                logger.info(f"ACTUAL_VALUE:[{res}]")
+                if isinstance(res, list):
+                    assert d2 in res
+                else:
+                    assert d2 == res
+            except AssertionError as e:
+                self.return_value('FAIL')
+                logger.info('--Fail--用例失败--')
+                logger.exception(e)
+                # raise
+                str_result = 'FAIL'
+                # return str_fail
+            else:
+                self.return_value('PASS')
+                logger.info('--Pass--用例成功--')
+                str_result = 'PASS'
+        self.__allurestep(str_result)
+        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel3(sheet, res, row_pos, col_pos_v)
+        return str_result
+
+    def assertInText(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+        datan = str(data['input']).strip()
+        result_to_json = json.dumps(self.jsonres)
+        with allure.step(
+                f"[{mTime()}]['assertInRe'][expect_value:{datan}][actual_value:{result_to_json}]"):
+            logger.info(f"EXPECT_VALUE:[{datan}]")
+
+            try:
+                # json - --- dict json.loads(json_string) 接收的是一个json 字符串
+                # dict - ---- json json.dumps(dict)接收的是一个字典 dict
+                # print(result_to_json)  # 先转json
+                logger.info(f"ACTUAL_VALUE:[{result_to_json}]")
+
+                # 方法2 直接判断包含
+                assert datan in result_to_json
+            except AssertionError as e:
+                self.return_value('FAIL')
+                logger.info('--Fail--用例失败--')
+                logger.exception(e)
+                # raise
+                str_result = 'FAIL'
+                # return str_fail
+            else:
+                self.return_value('PASS')
+                logger.info('--Pass--用例成功--')
+                str_result = 'PASS'
+        self.__allurestep(str_result)
+        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel3(sheet, self.jsonres, row_pos, col_pos_v)
+        return str_result
+
+    def assertInRe(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+        dList = str(data['input']).strip().split(',')
+        d1 = dList[0]
+        d2 = dList[1]
+        pattern = f'"{d1}": "(.+?)"'
+        with allure.step(
+                f"[{mTime()}]['assertInRe'][expect_key:{d1},expect_value:{d2}][actual_value:{self.jsonres}]"):
+            logger.info(f"expect_key:{d1}")
+            logger.info(f"EXPECT_VALUE:[{d2}]")
+            # logger.info(f"ACTUAL_VALUE:[{self.jsonres}]")
+            try:
+                # json - --- dict json.loads(json_string) 接收的是一个json 字符串
+                # dict - ---- json json.dumps(dict)接收的是一个字典 dict
+                # 断言data中包含"name": "yoyo"
+                result_to_json = json.dumps(self.jsonres)
+                # print(result_to_json)  # 先转json
+                # 方法1 正则取值
+
+                res = re.findall(pattern, result_to_json)  # 正则从json中取值
+                logger.info(f"ACTUAL_VALUE:[{res}]")
+                assert d2 in res
+                # 方法2 直接判断包含
+                # assert '"name": "yoyo"' in result_to_json
+            except AssertionError as e:
+                self.return_value('FAIL')
+                logger.info('--Fail--用例失败--')
+                logger.exception(e)
+                # raise
+                str_result = 'FAIL'
+                # return str_fail
+            else:
+                self.return_value('PASS')
+                logger.info('--Pass--用例成功--')
+                str_result = 'PASS'
+        self.__allurestep(str_result)
+        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel3(sheet, res, row_pos, col_pos_v)
+        return str_result
+
     def assertequals(self, data, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
         key = str(data['input']).strip()
@@ -176,9 +286,81 @@ class Http():
             self.return_value(f'返回值:[{self.jsonres}]')
 
         return self.jsonres
+
+    def __abs(self, i, data):
+        dataL = data.split(',')
+        tmp0, tmp1, tmp2, tmp3, tmp4 = ''
+        for i in range (0, len):
+            if dataL[i].isdigit():
+                tmp = f"{int(dataL[i])}"
+            else:
+                tmp = f"'{dataL[i]}'"
+        if i == 1:
+            if dataL[i - 1].isdigit():
+                tmp0 = f"{int(dataL[i - 1])}"
+            else:
+                tmp0 = f"'{dataL[i - 1]}'"
+            self.jsonres[tmp0]
+        elif i == 2:
+            self.jsonres[tmp0][tmp1]
+        elif i == 3:
+            self.jsonres[tmp0][tmp1][tmp2]
+        elif i == 4:
+            self.jsonres[tmp0][tmp1][tmp2][tmp3]
+        elif i == 5:
+            self.jsonres[tmp0][tmp1][tmp2][tmp3][tmp4]
+        else:
+            pass
+
+    def assertequalsAbs(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+        data = {'request_data': 'aa', 'input': 'aa'}
+        datan = str(data['input']).strip()
+        tmp = ''
+        self.jsonres = {'aa': '你好'}
+        len = len(datan.split(','))
+        # for i in range (1, len + 1):
+        self.__abs(self, len, datan.split(','))
+
+
+        print(tmp)
+        expect_value = str(data['request_data']).strip()
+        # actual_value = ''
+        try:
+            actual_value = str(self.jsonres)
+        except:
+            logger.error(f"{self.jsonres} is not exist.")
+            pass
+        with allure.step(
+                f"[{mTime()}]['assertequals'][key:{data['input']},actual_value:{actual_value}][expect_value:{expect_value}]"):
+            logger.info(f"input key:[{data['input']}]")
+            logger.info(f"ACTUAL_VALUE:[{actual_value}]")
+            logger.info(f"EXPECT_VALUE:[{expect_value}]")
+
+            try:
+                assert actual_value == expect_value
+            except AssertionError as e:
+                self.return_value('FAIL')
+                logger.info('--Fail--用例失败--')
+                logger.exception(e)
+                # raise
+                str_result = 'FAIL'
+                # return str_fail
+            else:
+                self.return_value('PASS')
+                logger.info('--Pass--用例成功--')
+                str_result = 'PASS'
+        self.__allurestep(str_result)
+        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel3(sheet, actual_value, row_pos, col_pos_v)
+        return str_result
+
+        pass
+
 if __name__ == '__main__':
     pass
     # Http().seturl('aaaa')
+    Http('11').assertequalsAbs('0123,aa,xx', 'sheet', 'row_pos', 'col_pos_c', 'col_pos_v')
     # a = getattr(Http, 'seturl')
     # print(a)
     # url = 'http://api.lemonban.com/futureloan/'

@@ -108,7 +108,7 @@ def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
 
     filelists = []
     _dfs_zip_file(input_path, filelists, ignore)
-    # print(filelists)
+    s = ''
     for file in filelists:
         dirs_f = os.path.dirname(file)
         dirs_t = dirs_f.replace(input_path, copy_to_path)
@@ -117,8 +117,12 @@ def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
         name = ntpath.basename(file)
         name_tmp = ntpath.basename(file)
 
-        file_copy(dirs_f, name, name_tmp, dirs_t, rename)
-
+        f = file_copy(dirs_f, name, name_tmp, dirs_t, rename)
+        if s == '':
+            s = s + f
+        else:
+            s = s + ',' + f
+    return s
 
 
 

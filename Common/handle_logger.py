@@ -3,9 +3,9 @@ from Common.handle_config import HandleConfig
 from Common.setting import BASE_DIR, REPORT_DIR, LOG_DIR
 from Common.handle_config2 import ReadWriteConfFile
 get_logdir = ReadWriteConfFile().get_option('report_dir', 'report_dir_folder')
+num = ReadWriteConfFile().get_option('report_file', 'file_num')
 log_dir = os.path.join(REPORT_DIR, get_logdir)
-log_file_format = os.path.join(log_dir, f'{get_logdir}.log')
-print('log_filelog_filelog_filelog_filelog_filelog_file:', log_file_format)
+log_file_format = os.path.join(log_dir, f'{get_logdir}_{num}.log')
 
 log_file = os.path.join(LOG_DIR, 'Test.log')
 class HandleLogger:

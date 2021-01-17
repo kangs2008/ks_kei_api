@@ -1,0 +1,19 @@
+INFO     LOG:conftest.py:15 ****************************************************************************************************
+INFO     LOG:conftest.py:16 ********************测试执行开始********************
+INFO     LOG:conftest.py:20 ----------requests_session setup----------
+INFO     LOG:conftest.py:21 获取session：<requests.sessions.Session object at 0x000001FB5C0715C8>
+INFO     LOG:test_api4.py:37 API测试
+INFO     LOG:test_api4.py:38 FILE SHEET： t_接口222222  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ks/Datas/test_apidata.xlsx
+INFO     LOG:test_api4.py:45 执行测试套件: TestAPI
+INFO     LOG:test_api4.py:46 执行测试用例: t_接口222222
+INFO     LOG:test_api4.py:76 测试功能是：系统1
+INFO     LOG:test_api4.py:93 测试数据是:【title:[系统1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+INFO     LOG:apiKeyWords3.py:277 执行函数:seturl
+INFO     LOG:apiKeyWords3.py:293 值是：http://testingedu.com.cn:8081/inter/HTTP
+INFO     LOG:apiKeyWords3.py:288 输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+INFO     LOG:test_api4.py:62 函数返回值：None
+INFO     LOG:test_api4.py:71 写入Excel：save_excel_teardown
+INFO     LOG:conftest.py:24 销毁session：<requests.sessions.Session object at 0x000001FB5C0715C8>
+INFO     LOG:conftest.py:25 ----------requests_session teardown----------
+INFO     LOG:conftest.py:28 ********************测试执行结束********************
+INFO     LOG:conftest.py:29 ****************************************************************************************************

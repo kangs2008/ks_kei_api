@@ -13,6 +13,7 @@ class Http():
         self.jsonres = {}
         self.session = requests_session
         self.relations = {}
+        self.param = {}
 
 
         self.h1 = {"X-Lemonban-Media-Type": "lemonban.v2"}
@@ -25,19 +26,16 @@ class Http():
             headers["Authorization"] = "Bearer {}".format(token)
         return headers
 
+
+
     def __get_relations(self, param):
         if param is None or param == '':
             return None
         else:
             for key in self.relations:
-                param = param.replace('{' + key + '}', self.relations[key])
+                param = param.replace('${' + key + '}', self.relations[key])
             return param
     def __get_data(self, param):
-        # if (param is not None or param != '') and isinstance(param, str):
-        #     return json.loads(param)  # 用于将str类型的数据转成dict
-        # else:
-        #     return None
-
         if (param is None) or param == '':
             return None
         else:
@@ -51,27 +49,20 @@ class Http():
             #         value = s[s.find('=') + 1 :]
             #         p[key] = value
             # return p
-            return json.loads(param) # 用于将str类型的数据转成dict
+            paramn = self.__get_relations(param)
+            return json.loads(paramn) # 用于将str类型的数据转成dict
 
     def __allurestep(self, str_fail='FAIL'):
         if str_fail == 'FAIL':
             with allure.step(f"对比结果：{str_fail}"):
                 pass
 
-    def __abs(self, datan):
-        dataL = datan.split(',')
-        tmp = ''
-        for one in dataL:
-            if one.strip().isdigit():
-                tmp = tmp + f"[{one.strip()}]"
-            else:
-                tmp = tmp + f"['{one.strip()}']"
-        return tmp
 
-    def assertJsonpath(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+
+    def assertJsonpath(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-        expect_value = str(data['request_data']).strip()
-        datan = str(data['input']).strip()
+        expect_value = str(apidata['request_data']).strip()
+        datan = str(apidata['input']).strip()
         result_to_json = json.dumps(self.jsonres)
         res = jsonpath.jsonpath(result_to_json, f'$..{datan}')  # 找不到是结果是 False
         with allure.step(
@@ -139,10 +130,10 @@ class Http():
     #     write_to_excel3(sheet, self.jsonres, row_pos, col_pos_v)
     #     return str_result
 
-    def assertInRe(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+    def assertInRe(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-        expect_value = str(data['request_data']).strip()
-        d_k = str(data['input']).strip()
+        expect_value = str(apidata['request_data']).strip()
+        d_k = str(apidata['input']).strip()
         pattern = f'"{d_k}": "(.+?)"'
 
         # json - --- dict json.loads(json_string) 接收的是一个json 字符串
@@ -176,42 +167,11 @@ class Http():
         write_to_excel3(sheet, res, row_pos, col_pos_v)
         return str_result
 
-    # def assertequals(self, data, sheet, row_pos, col_pos_c, col_pos_v):
-    #     logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-    #     key = str(data['input']).strip()
-    #     expect_value = str(data['request_data']).strip()
-    #     actual_value = ''
-    #     try:
-    #         actual_value = str(self.jsonres[key])
-    #     except:
-    #         logger.error(f"{self.jsonres[key]} is not exist.")
-    #         pass
-    #     with allure.step(f"[{mTime()}]['assertequals'][key:{data['input']},actual_value:{actual_value}][expect_value:{expect_value}]"):
-    #         logger.info(f"input key:[{data['input']}]")
-    #         logger.info(f"ACTUAL_VALUE:[{actual_value}]")
-    #         logger.info(f"EXPECT_VALUE:[{expect_value}]")
-    #
-    #         try:
-    #             assert actual_value == expect_value
-    #         except AssertionError as e:
-    #             self.return_value('FAIL')
-    #             logger.info('--Fail--用例失败--')
-    #             logger.exception(e)
-    #             # raise
-    #             str_result = 'FAIL'
-    #             # return str_fail
-    #         else:
-    #             self.return_value('PASS')
-    #             logger.info('--成功--')
-    #             str_result = 'PASS'
-    #     self.__allurestep(str_result)
-    #     write_to_excel3(sheet, str_result, row_pos, col_pos_c)
-    #     write_to_excel3(sheet, str_result, row_pos, col_pos_v)
-    #     return str_result
-    def assertequals(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+    def assertequals(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-        dictabspath = self.__abs(data['input'])
-        expect_value = str(data['request_data']).strip()
+        dictabspath = self.__abs(apidata['input'])
+        expect_value = str(apidata['request_data']).strip()
+        actual_value = ''
         try:
             dict_value = eval(str(self.jsonres) + dictabspath)
             actual_value = str(dict_value)
@@ -220,8 +180,8 @@ class Http():
             logger.error(e)
             pass
         with allure.step(
-                f"[{mTime()}]['assertequals'][key:{data['input']},actual_value:{actual_value}][expect_value:{expect_value}]"):
-            logger.info(f"key:[{data['input']}]")
+                f"[{mTime()}]['assertequals'][key:{apidata['input']},actual_value:{actual_value}][expect_value:{expect_value}]"):
+            logger.info(f"key:[{apidata['input']}]")
             logger.info(f"ACTUAL_VALUE:[{actual_value}]")
             logger.info(f"EXPECT_VALUE:[{expect_value}]")
 
@@ -243,49 +203,136 @@ class Http():
         write_to_excel3(sheet, actual_value, row_pos, col_pos_v)
         return str_result
 
-
-
-    def savejson(self, data, sheet, row_pos, col_pos_c, col_pos_v):
-        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-
-        with allure.step(f"[{mTime()}]['savejson'][relations_key:{data['input']}][jsonres_key:{data['request_data']}]"):
-            logger.info(f"relations_key:[{data['input']}]")
-            logger.info(f"jsonres_key:[{data['request_data']}]")
-            logger.info(f"self.relations[{data['input']}] = self.jsonres[{data['request_data']}]")
-            self.relations[data['input']] = self.jsonres[data['request_data']]
-            self.return_value(self.relations[data['input']])
-            write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-            write_to_excel3(sheet, self.jsonres[data['request_data']], row_pos, col_pos_v)
-            return {f'{data["input"]}': f'{self.jsonres[data["request_data"]]}'}
-
-    def addheader(self, data, sheet, row_pos, col_pos_c, col_pos_v):
-        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-        with allure.step(f"[{mTime()}]['addheader'][headers_key:{data['input']}][{data['request_data']}]"):
-            logger.info(f"headers_key:[{data['input']}]")
-            logger.info(f"headers_value_before:[{data['request_data']}]")
-            logger.info(f"headers_value_after(__get_relations)[{self.__get_relations(data['request_data'])}]")
-            # if data['input'] == 'token':
-            self.session.headers[data['input']] = self.__get_relations(data['request_data'])
-            # else:
-            #     self.__hander_henders(data['input'])
-            # self.return_value(self.__get_relations(data['request_data']))
-            write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-            write_to_excel3(sheet, self.__get_relations(data['request_data']), row_pos, col_pos_v)
-            return self.session.headers
-
-    def seturl(self, data, sheet, row_pos, col_pos_c, col_pos_v):
-        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-        with allure.step(f"[{mTime()}]['seturl'][{data['input']}]"):
-            path = str(data['input']).strip()
-            if path.startswith('http'):
-                self.url = data['input']
-                self.return_value(self.url)
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, data['input'], row_pos, col_pos_v)
+    def __abs(self, datan):
+        dataL = datan.split(',')
+        tmp = ''
+        for one in dataL:
+            if one.strip().isdigit():
+                tmp = tmp + f"[{one.strip()}]"
             else:
+                # res_path = self.__get_re(one.strip())
+                tmp = tmp + f"['{one.strip()}']"
+                # tmp = tmp + f"['{res_path}']"
+        return tmp
+
+    def __get_re(self, param):
+        pattern = r'[$][{](.*?)[}]'
+        res = re.findall(pattern, str(param)) # ${aa}
+        if res:
+            for r in res:
+                param = param.replace('${' + r + '}', r)
+        return param
+
+    def saveparam(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+
+        try:
+            input_path = apidata['input'].strip()
+            _data = apidata['request_data'].strip()
+            if str(_data).startswith('{') and str(_data).endswith('}'):
+                request_data_value = self.__get_data(_data)
+            else:
+                request_data_value = self.__get_relations(apidata['request_data'].strip()) # ???
+                # request_data_path = self.__abs(_data)
+                # request_data_value = eval(str(self.jsonres) + request_data_path)
+            with allure.step(f"[{mTime()}]['saveparam'][saveparam_key:{input_path}][saveparam_value:{request_data_value}]"):
+                logger.info(f"saveparam_key:[{input_path}]")
+                logger.info(f"saveparam_value:[{request_data_value}]")
+                logger.info(f"self.param[{input_path}] = {request_data_value}")
+
+                self.param[input_path] = request_data_value
+                self.return_value(self.param)
+                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel3(sheet, request_data_value, row_pos, col_pos_v) # self.jsonres[data['request_data']]
+                return {f'{input_path}': f'{request_data_value}'}
+
+        except Exception as e:
+            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+            logger.error(e)
+            pass
+
+    def savedata(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+
+        request_data_path = apidata['request_data'].strip()
+        with allure.step(
+                f"[{mTime()}]['savedata'][relations_key:{apidata['input']}][relations_value:{request_data_path}]"):
+            logger.info(f"relations_key:[{apidata['input']}]")
+            logger.info(f"relations_value:[{request_data_path}]")
+            logger.info(f"self.relations[{apidata['input']}] = {request_data_path}")
+            if str(request_data_path).startswith('${'):
                 write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-                write_to_excel3(sheet, data['input'], row_pos, col_pos_v)
-            logger.info(f"输入参数:[{data['input']}]")
+                write_to_excel3(sheet, request_data_path, row_pos, col_pos_v)
+            else:
+                self.relations[apidata['input'].strip()] = request_data_path
+                self.return_value(self.relations[apidata['input'].strip()])
+                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel3(sheet, request_data_path, row_pos, col_pos_v) # self.jsonres[data['request_data']]
+            return {f'{apidata["input"].strip()}': f'{request_data_path}'}
+
+    def savejson(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+
+        try:
+            request_data_path = self.__abs(apidata['request_data'].strip())
+            request_data_value = eval(str(self.jsonres) + request_data_path)
+
+            with allure.step(f"[{mTime()}]['savejson'][relations_key:{apidata['input']}][jsonres_key:{request_data_path}]"):
+                logger.info(f"relations_key:[{apidata['input']}]")
+                logger.info(f"jsonres_key:[{request_data_path}]")
+                logger.info(f"self.relations[{apidata['input']}] = self.jsonres{request_data_path}")
+
+                self.relations[apidata['input'].strip()] = request_data_value
+                self.return_value(self.relations[apidata['input'].strip()])
+                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel3(sheet, request_data_value, row_pos, col_pos_v) # self.jsonres[data['request_data']]
+                return {f'{apidata["input"].strip()}': f'{request_data_value}'}
+
+        except Exception as e:
+            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+            return_str = f"key:'{request_data_path}'is not in {str(self.jsonres)}."
+            write_to_excel3(sheet, return_str, row_pos, col_pos_v)
+            logger.error(return_str)
+            logger.error(e)
+            pass
+
+    def addheader(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+        try:
+            with allure.step(f"[{mTime()}]['addheader'][headers_key:{apidata['input']}][{apidata['request_data']}]"):
+                logger.info(f"headers_key:[{apidata['input']}]")
+                logger.info(f"headers_value_before:[{apidata['request_data']}]")
+                rel = self.__get_relations(apidata['request_data'].strip())
+                logger.info(f"headers_value_after(__get_relations):[{rel}]")
+
+                self.session.headers[apidata['input'].strip()] = rel
+                # self.return_value(rel)
+                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel3(sheet, rel, row_pos, col_pos_v)
+                return self.session.headers
+        except Exception as e:
+            logger.error(f"key:'{self.__get_re(apidata['request_data'].strip())}' is not in [{self.relations}].")
+            logger.error(e)
+            pass
+
+    def seturl(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
+        logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
+        try:
+            with allure.step(f"[{mTime()}]['seturl'][{apidata['input']}]"):
+                logger.info(f"输入参数:[{apidata['input']}]")
+                path = str(apidata['input']).strip()
+                if path.startswith('http'):
+                    self.url = path
+                    self.return_value(self.url)
+                    write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
+                    write_to_excel3(sheet, apidata['input'], row_pos, col_pos_v)
+                else:
+                    write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+                    write_to_excel3(sheet, apidata['input'], row_pos, col_pos_v)
+        except Exception as e:
+            logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
+            logger.error(e)
+            pass
 
 
     def return_value(self, value):
@@ -293,41 +340,40 @@ class Http():
             logger.info(f"值是：{value}")
 
 
-    def post(self, data, sheet, row_pos, col_pos_c, col_pos_v):
+    def post(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:【'post'】")
 
-        #转为字典
-        path = str(data['input']).strip()
-        param = str(data['request_data']).strip()
-        param = self.__get_data(param)
-        # logger.info(f"input:[{data['input']}]")
-        # logger.info(f"request_data:[{data['request_data']}]")
-
         new_url = ''
-        if path.startswith('http'):
+        url_path = str(apidata['input']).strip()
+        if url_path.startswith('http'):
             pass
         else:
             if str(self.url)[-1:] == '/':
-                new_url = self.url + path
+                new_url = self.url + url_path
             else:
-                new_url = self.url + '/' + path
-        with allure.step(fr"[{mTime()}][POST][post_after:{self.result}]"):
-            try:
+                new_url = self.url + '/' + url_path
+        # 转为字典
+        try:
+            _data = str(apidata['request_data']).strip()
+            _data = self.__get_data(_data)
+
+            with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):
                 self.return_value(f'请求接口:[{new_url}]')
                 self.return_value(f'请求头:[{self.session.headers}]')
-                self.return_value(f'请求参数:[{param}]')
-                self.result = self.session.post(new_url, json=param, proxies=None)
+
+
+                self.return_value(f'请求体:[{_data}]')
+                self.result = self.session.post(new_url, json=_data, data=None, proxies=None)
                 self.jsonres = json.loads(self.result.text)
+                self.return_value(f'返回值:[{self.jsonres}]')
                 write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
                 write_to_excel3(sheet, self.result.text, row_pos, col_pos_v)
-            except Exception as e:
-                # logger.error(f"It's not json text.\n{self.result.text}")
-                logger.error(e)
-                self.jsonres = self.result.text
-                write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-                write_to_excel3(sheet, self.result.text, row_pos, col_pos_v)
-            self.return_value(f'返回值:[{self.jsonres}]')
-
+        except Exception as e:
+            logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
+            logger.error(e)
+            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel3(sheet, self.result.text, row_pos, col_pos_v)
+            # self.jsonres = self.result.text
         return self.jsonres
 
 

@@ -44,22 +44,40 @@ class Handle_excel():
         return rowdata
 
     def get_cell_value(self, sheet, row, col):
-        value = sheet.cell(row,col).value
+        value = sheet.cell(row, col).value
         return value
     def get_re_parameter(self, dict_kv, para):
-        pattern = r'[${](.*?)[}]'
+        pattern = r'[$][{](.*?)[}]'
         para = str(para)
         for key in dict_kv.keys():
+            res = re.findall(pattern, str(para)) # ${aa}
+            # print('res---', res, para)
+            if res:
+                for r in res:
+                    if r in key:
+                        para = para.replace('${' + r + '}', str(dict_kv.get(r, r)))
+                # para = [para.replace('{' + r + '}', str(dict_kv.get(r, r))) for r in enumerate(res) if r == key]
+        return para
+
+
+
+    def get_re_parameter_bak(self, dict_kv, para):
+        pattern = r'[$][{](.*?)[}]'
+        para = str(para)
+        print(dict_kv)
+        for key in dict_kv.keys():
             if para in key and para != '':
-                para = dict_kv.get(key, key)
-                # pass
+                # para = dict_kv.get(key, key)
+                pass # 只通过re主动替换
             else:
-                res = re.findall(pattern, str(para))
+                res = re.findall(pattern, str(para)) # ${aa}
+                print('res---', res, para)
                 if res:
                     for r in res:
                         if r in key:
                             para = para.replace('${' + r + '}', str(dict_kv.get(r, r)))
                     # para = [para.replace('{' + r + '}', str(dict_kv.get(r, r))) for r in enumerate(res) if r == key]
+
         return para
 
     def getColumnValuesByTitle(self, sheet, exec_value):
@@ -71,7 +89,7 @@ class Handle_excel():
 
             if len(pos) != 0:
                 for rownum in range(2, maxRowNum + 1):
-                    value = sheet.cell(rownum, pos[0] +1).value
+                    value = sheet.cell(rownum, pos[0] + 1).value
                     if value is None:
                         value = ''
                     execValues.append(value)
@@ -85,10 +103,9 @@ class Handle_excel():
     def getExecValuesOfSheet(self, sheet, exec_value=None, exec_type=None, multi=None):
         maxRowNum = self.get_max_row(sheet)
         columnNum = self.get_max_column(sheet)
-
+        print('columnNum', columnNum)
 
         sheetValues = []
-        # write_list = []
         if exec_value is None:
             # sheetValues = getAllValuesOfSheet(sheet)
             print('???')
@@ -101,10 +118,7 @@ class Handle_excel():
                 execvalue = exec[row - 2]
                 real_pos = pos[0] + 1
                 tempdict = {}
-
-                # write_dict = {}
                 if execvalue.lower() == exec_type:
-                    # write_dict[f'write{row - 1}'] = 'w'
                     for column in range(1, columnNum + 1):
                         title_value = self.get_cell_value(sheet, 1, column) # title key
                         value = sheet.cell(row, column).value
@@ -113,27 +127,33 @@ class Handle_excel():
                             value = ''
                         if multi is not None:
                             for one in multi:
-                                # print('one', one)
                                 change_value = self.get_re_parameter(one, value) # config sheet dict
-                                # print('change_value', change_value)
-                                value = change_value
-                                # change_value2 = get_re_parameter('config.cofigation', value)
-                                # a=a.replace('\n', '').replace(' ', '')
-                                # tmp[title_value] = change_value
-
                                 tempdict[title_value] = change_value
-                        else:
-                            tempdict[title_value] = value
+
                         if column == real_pos:
                             # tempdict[title_value] = value + str(row - 1) y1 y2
                             tempdict[title_value] = str(row - 1) # 1 2 3
                     sheetValues.append(tempdict)
-                # else: # 20201210 for write
-                    # write_dict[f'write{row - 1}'] = ''
-                # write_list.append(write_dict)
-
-
         return sheetValues
+
+    def get_re_parameter_sheet(self, dict_kv, para):
+        pattern = r'[$][{](.*?)[}]'
+        para = str(para)
+        for val in dict_kv.values():
+            res = re.findall(pattern, str(para)) # ${aa}
+            print('res---', res, para, val)
+            if res:
+                for r in res:
+                    if r in para:
+                        para = para.replace('${' + r + '}', str(val))
+        return para
+
+
+
+
+
+
+
     def getExecKVofSheet(self, sheet, exec_value=None, exec_type=None):
         # row = self.get_max_row(sheet)
         maxRowNum = self.get_max_row(sheet)
@@ -344,10 +364,10 @@ if __name__ == '__main__':
     # wb, sheet = load_excel2(r'D:\desk20201127\ks\Report\2020-12-09_21-08-17\test_apidata_report.xlsx', 't_接')
     # write_excel2(wb, sheet, 'set_value', '9')
     # write_to_save2(wb, file)
-    exec, pos1 = Handle_excel(r'D:\desk20201127\ks\Datas\test_apidata.xlsx').getColumnValuesByTitle(sheet, 'return_values')
-    exec, pos2 = Handle_excel(r'D:\desk20201127\ks\Datas\test_apidata.xlsx').getColumnValuesByTitle(sheet, 'return_code')
-    print(pos1)
-    print(pos2)
+    # exec, pos1 = Handle_excel(r'D:\desk20201127\ks\Datas\test_apidata.xlsx').getColumnValuesByTitle(sheet, 'return_values')
+    # exec, pos2 = Handle_excel(r'D:\desk20201127\ks\Datas\test_apidata.xlsx').getColumnValuesByTitle(sheet, 'return_code')
+    # print(pos1)
+    # print(pos2)
 
     # print(pos)
     # print(write_to_excel(file, 't_接', 'valuu', '9'))
@@ -369,24 +389,24 @@ if __name__ == '__main__':
     # print(excel_to_case(path, 1, None))
 
 
-
-
+    path = r'D:\desk20201127\ks\Datas\test_apidata.xlsx'
     #
     # print(Handle_excel(path).get_sheets())
     # sheet = Handle_excel(path).get_sheet_by_name('t_接口')
-    # sh2 = Handle_excel(path).get_sheet_by_name('config')
+    sh2 = Handle_excel(path).get_sheet_by_name('config')
     # Handle_excel(path).getColumnValuesByTitle(sh2, 'exec')
     # # sh3 = Handle_excel(path).get_sheet_by_name('test_UI')
     # # Handle_excel(path).getColumnValuesByTitle(sh2, 'exec')
     # print('22222222')
-    # dictkv = Handle_excel(path).getExecKVofSheet(sh2, 'exec', 'y')
+    dictkv = Handle_excel(path).getExecKVofSheet(sh2, 'exec', 'y')
     # # dictkv2 = Handle_excel(path).getExecKVofSheet(sh3, 'exec', 'y')
     # print('dictkv', dictkv)
     # # print(get_row_value(sheet, '1'))
     # print('11111111111')
     #
-    # kv = [dictkv]
+    kv = [dictkv]
     #
     #
-    # print(Handle_excel(path).getExecValuesOfSheet(sheet, 'exec', 'y', kv))
+    print(kv)
+    print(Handle_excel(path).getExecValuesOfSheet(sheet, 'exec', 'y', kv))
     # # print(Handle_excel(path).kw(dictkv))

@@ -36,6 +36,10 @@ def use_time(starttime, endtime):
 def start_time_format(starttime):
     return time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime(starttime)) # time.localtime(time.time())
 
+def report_date_folder():
+    return time.strftime("%Y-%m-%d", time.localtime(time.time()))
+
 if __name__ == '__main__':
+    print(report_date_folder())
     print(mTime())
-    print(start_time_format())
+    print(start_time_format(time.time()))

@@ -1,0 +1,61 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "api.cases.test_api4",
+    "children" : [ {
+      "name" : "test_all_api[data0]",
+      "uid" : "5dae513f4e34bb0b",
+      "parentUid" : "527e3022f11baadf15832b844839d693",
+      "status" : "broken",
+      "time" : {
+        "start" : 1609411600484,
+        "stop" : 1609411600484,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'sheetname1': 't_接', 'file1': 'test_a1pidat2a - 副本.xlsx', 'filepath1': 'D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx', 'filesheet1': [{'num': '1', 'exec': '1', 'title': '充1', 'method': 'seturl', 'input': 'http://testingedu.com.cn:8081/inter/HTTP', 'request_data': '{user}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '2', 'exec': '2', 'title': '', 'method': 'addheader', 'input': 'token', 'request_data': '', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '3', 'exec': '3', 'title': '', 'method': 'post', 'input': 'auth', 'request_data': '', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '4', 'exec': '4', 'title': '充2', 'method': 'savejson', 'input': 'token', 'request_data': 'token', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '5', 'exec': '5', 'title': '', 'method': 'addheader', 'input': 'token', 'request_data': '{token}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '6', 'exec': '6', 'title': '', 'method': 'post', 'input': 'register', 'request_data': '{\"username\": \"\", \"pwd\": \"123456\", \"nickname\":\"熊明\"}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '7', 'exec': '7', 'title': '', 'method': 'assertequals', 'input': 'status', 'request_data': '200', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '9', 'exec': '8', 'title': '', 'method': 'post', 'input': 'register', 'request_data': '{\"username\": \"\", \"pwd\": \"126\", \"nickname\":\"熊明\"}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '10', 'exec': '9', 'title': '', 'method': 'assertequals', 'input': 'status', 'request_data': '402', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}]}" ]
+    }, {
+      "name" : "test_all_api[data1]",
+      "uid" : "3911faefdc1aebf2",
+      "parentUid" : "527e3022f11baadf15832b844839d693",
+      "status" : "broken",
+      "time" : {
+        "start" : 1609411600664,
+        "stop" : 1609411600664,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'sheetname2': 't_接口222222', 'file2': 'test_a1pidat2a - 副本.xlsx', 'filepath2': 'D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx', 'filesheet2': [{'num': '1', 'exec': '1', 'title': '系统1', 'method': 'seturl', 'input': 'http://testingedu.com.cn:8081/inter/HTTP', 'request_data': '{user}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}]}" ]
+    }, {
+      "name" : "test_all_api[data2]",
+      "uid" : "80d75ad2b1e69fea",
+      "parentUid" : "527e3022f11baadf15832b844839d693",
+      "status" : "passed",
+      "time" : {
+        "start" : 1609411600744,
+        "stop" : 1609411601804,
+        "duration" : 1060
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'sheetname1': 't_接', 'file1': 'test_apidata.xlsx', 'filepath1': 'D:/desk20201127/ks/Datas/test_apidata.xlsx', 'filesheet1': [{'num': '1', 'exec': '1', 'title': '充1', 'method': 'seturl', 'input': 'http://testingedu.com.cn:8081/inter/HTTP', 'request_data': '{user}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '2', 'exec': '2', 'title': '', 'method': 'addheader', 'input': 'token', 'request_data': '', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '3', 'exec': '3', 'title': '', 'method': 'post', 'input': 'auth', 'request_data': '', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '4', 'exec': '4', 'title': '充2', 'method': 'savejson', 'input': 'token', 'request_data': 'token', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '5', 'exec': '5', 'title': '', 'method': 'addheader', 'input': 'token', 'request_data': '{token}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '6', 'exec': '6', 'title': '', 'method': 'post', 'input': 'register', 'request_data': '{\"username\": \"\", \"pwd\": \"123456\", \"nickname\":\"熊明\"}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '7', 'exec': '7', 'title': '', 'method': 'assertequals', 'input': 'status', 'request_data': '200', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '9', 'exec': '8', 'title': '', 'method': 'post', 'input': 'register', 'request_data': '{\"username\": \"\", \"pwd\": \"126\", \"nickname\":\"熊明\"}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '10', 'exec': '9', 'title': '', 'method': 'assertequals', 'input': 'status', 'request_data': '402', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}]}" ]
+    }, {
+      "name" : "test_all_api[data3]",
+      "uid" : "ab79ae40883b098f",
+      "parentUid" : "527e3022f11baadf15832b844839d693",
+      "status" : "passed",
+      "time" : {
+        "start" : 1609411601834,
+        "stop" : 1609411602014,
+        "duration" : 180
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'sheetname2': 't_接口222222', 'file2': 'test_apidata.xlsx', 'filepath2': 'D:/desk20201127/ks/Datas/test_apidata.xlsx', 'filesheet2': [{'num': '1', 'exec': '1', 'title': '系统1', 'method': 'seturl', 'input': 'http://testingedu.com.cn:8081/inter/HTTP', 'request_data': '{user}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}]}" ]
+    } ],
+    "uid" : "api.cases.test_api4"
+  } ]
+}

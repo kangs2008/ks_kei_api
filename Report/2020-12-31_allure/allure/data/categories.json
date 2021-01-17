@@ -1,0 +1,39 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "FileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\desk20201127\\\\ks\\\\Report\\\\2020-12-31_allure\\\\test_a1pidat2a - 副本_report(4).xlsx'",
+      "children" : [ {
+        "name" : "test_all_api[data0]",
+        "uid" : "5dae513f4e34bb0b",
+        "parentUid" : "2fd49d7a98abf265cdcfdb5dcc467707",
+        "status" : "broken",
+        "time" : {
+          "start" : 1609411600484,
+          "stop" : 1609411600484,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'sheetname1': 't_接', 'file1': 'test_a1pidat2a - 副本.xlsx', 'filepath1': 'D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx', 'filesheet1': [{'num': '1', 'exec': '1', 'title': '充1', 'method': 'seturl', 'input': 'http://testingedu.com.cn:8081/inter/HTTP', 'request_data': '{user}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '2', 'exec': '2', 'title': '', 'method': 'addheader', 'input': 'token', 'request_data': '', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '3', 'exec': '3', 'title': '', 'method': 'post', 'input': 'auth', 'request_data': '', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '4', 'exec': '4', 'title': '充2', 'method': 'savejson', 'input': 'token', 'request_data': 'token', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '5', 'exec': '5', 'title': '', 'method': 'addheader', 'input': 'token', 'request_data': '{token}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '6', 'exec': '6', 'title': '', 'method': 'post', 'input': 'register', 'request_data': '{\"username\": \"\", \"pwd\": \"123456\", \"nickname\":\"熊明\"}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '7', 'exec': '7', 'title': '', 'method': 'assertequals', 'input': 'status', 'request_data': '200', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '9', 'exec': '8', 'title': '', 'method': 'post', 'input': 'register', 'request_data': '{\"username\": \"\", \"pwd\": \"126\", \"nickname\":\"熊明\"}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}, {'num': '10', 'exec': '9', 'title': '', 'method': 'assertequals', 'input': 'status', 'request_data': '402', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}]}" ]
+      }, {
+        "name" : "test_all_api[data1]",
+        "uid" : "3911faefdc1aebf2",
+        "parentUid" : "2fd49d7a98abf265cdcfdb5dcc467707",
+        "status" : "broken",
+        "time" : {
+          "start" : 1609411600664,
+          "stop" : 1609411600664,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'sheetname2': 't_接口222222', 'file2': 'test_a1pidat2a - 副本.xlsx', 'filepath2': 'D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx', 'filesheet2': [{'num': '1', 'exec': '1', 'title': '系统1', 'method': 'seturl', 'input': 'http://testingedu.com.cn:8081/inter/HTTP', 'request_data': '{user}', 'status': '', 'expect': '', 'return_code': '', 'return_values': ''}]}" ]
+      } ],
+      "uid" : "2fd49d7a98abf265cdcfdb5dcc467707"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
+}

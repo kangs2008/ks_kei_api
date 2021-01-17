@@ -22,8 +22,10 @@ def file_copy(file_path, file_name, file_tmp, copy_to_path, rename=None):
         shutil.copy(tmpf, tmpt)
         return file_name
     num = 1
-    if re.findall('\((\d)\)', file_name):
-        num = re.findall('\((\d)\)', file_name)
+    if re.findall('\((\d+)\)', file_name):
+        print(file_name)
+        num = re.findall('\((\d+)\)', file_name)
+        print(num)
         new_num = int(num[0]) + 1
         file_name = file_name.replace(num[0], str(new_num))
         return file_copy(file_path, file_name, file_tmp, copy_to_path)
@@ -116,7 +118,6 @@ def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
 
         name = ntpath.basename(file)
         name_tmp = ntpath.basename(file)
-
         f = file_copy(dirs_f, name, name_tmp, dirs_t, rename)
         if s == '':
             s = s + f

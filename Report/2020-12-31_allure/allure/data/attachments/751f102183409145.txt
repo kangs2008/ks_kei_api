@@ -1,0 +1,10 @@
+INFO     LOG:conftest.py:15 ****************************************************************************************************
+INFO     LOG:conftest.py:16 ********************测试执行开始********************
+INFO     LOG:conftest.py:20 ----------requests_session setup----------
+INFO     LOG:conftest.py:21 获取session：<requests.sessions.Session object at 0x000001FB5C0AFB48>
+INFO     LOG:test_api4.py:37 API测试
+INFO     LOG:test_api4.py:38 FILE SHEET： t_接口222222  FILE NAME： test_a1pidat2a - 副本.xlsx  FILE PATH： D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx
+INFO     LOG:conftest.py:24 销毁session：<requests.sessions.Session object at 0x000001FB5C0AFB48>
+INFO     LOG:conftest.py:25 ----------requests_session teardown----------
+INFO     LOG:conftest.py:28 ********************测试执行结束********************
+INFO     LOG:conftest.py:29 ****************************************************************************************************

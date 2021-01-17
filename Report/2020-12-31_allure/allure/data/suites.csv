@@ -1,0 +1,21 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Dec 31 18:46:40 CST 2020","Thu Dec 31 18:46:41 CST 2020","1060","api.cases","test_api4","TestAPI","","","test_all_api[data2]","FILE SHEET： t_接  
+
+FILE NAME： test_apidata.xlsx  
+
+FILE PATH： D:/desk20201127/ks/Datas/test_apidata.xlsx"
+"passed","Thu Dec 31 18:46:41 CST 2020","Thu Dec 31 18:46:42 CST 2020","180","api.cases","test_api4","TestAPI","","","test_all_api[data3]","FILE SHEET： t_接口222222  
+
+FILE NAME： test_apidata.xlsx  
+
+FILE PATH： D:/desk20201127/ks/Datas/test_apidata.xlsx"
+"broken","Thu Dec 31 18:46:40 CST 2020","Thu Dec 31 18:46:40 CST 2020","0","api.cases","test_api4","TestAPI","","","test_all_api[data0]","FILE SHEET： t_接  
+
+FILE NAME： test_a1pidat2a - 副本.xlsx  
+
+FILE PATH： D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx"
+"broken","Thu Dec 31 18:46:40 CST 2020","Thu Dec 31 18:46:40 CST 2020","0","api.cases","test_api4","TestAPI","","","test_all_api[data1]","FILE SHEET： t_接口222222  
+
+FILE NAME： test_a1pidat2a - 副本.xlsx  
+
+FILE PATH： D:/desk20201127/ks/Datas/test_a1pidat2a - 副本.xlsx"

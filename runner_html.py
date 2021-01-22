@@ -5,7 +5,7 @@ import time
 
 from Common.handle_config2 import ReadWriteConfFile
 from Common.utils import start_time_format, use_time, report_date_folder
-from Common.handle_file import file_del, file_zip_path, file_copy, file_and_folder_copy
+from Common.handle_file import file_del, file_zip_path, file_copy_for_report, file_and_folder_copy_report
 from Common.setting import BASE_DIR, REPORT_DIR
 
 def set_exec_usefile(file, folder, sheet):
@@ -49,7 +49,7 @@ datas_path_file = os.path.join(datas_path, "test_apidata.xlsx")
 @click.option('--report', default=report_date_folder, help='当天日期为报告文件夹：2020-12-19  or None')
 def main(file, folder, sheet, report):
     starttime = time.time()
-
+    set_exec_ini('report_file', 'file_num', '')
     if report is None:
         report_dir_format = start_time_format(starttime) + '_html'
         set_exec_ini('report_dir', 'report_dir_folder', report_dir_format)
@@ -69,10 +69,10 @@ def main(file, folder, sheet, report):
 
     if st:
         print('11111')
-        new_report_excel_name = file_copy(datas_path, 'test_apidata.xlsx', f'test_apidata.xlsx', f'{mk_report_dir}', 're_name')
+        new_report_excel_name = file_copy_for_report(datas_path, 'test_apidata.xlsx', f'test_apidata.xlsx', f'{mk_report_dir}', 're_name')
     else:
         print('2222')
-        new_report_excel_name = file_and_folder_copy(datas_path, f'{mk_report_dir}', ['test_'], 're_name')
+        new_report_excel_name = file_and_folder_copy_report(datas_path, f'{mk_report_dir}', ['test_'], 're_name')
     print(new_report_excel_name)
     set_exec_ini('report_file', 'report_file_name', new_report_excel_name)
     num = html_num(new_report_excel_name)
@@ -95,7 +95,7 @@ def main(file, folder, sheet, report):
     logger.info(f'测试报告文件夹：{mk_report_dir}') # os.path.join(REPORT_DIR, report_dir_format)
 
     os.system(f'cd {BASE_DIR}')
-    os.system(f'pytest {BASE_DIR}/api/cases/test_api4.py -v --html={BASE_DIR}/Report/{report_dir_format}/{report_dir_format}_report{num}.html --self-contained-html')
+    os.system(f'pytest {BASE_DIR}/api/cases/test_api4.py -v --html={BASE_DIR}/Report/{report_dir_format}/{report_dir_format}_report_{num}_.html --self-contained-html')
 
     # input_path = os.path.join(REPORT_DIR, report_dir_format)
     # output_path = os.path.join(REPORT_DIR, f'{report_dir_format}.zip')

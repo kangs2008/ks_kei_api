@@ -306,12 +306,12 @@ def excel_to_case(file_name, no_current_folder=None, sheet_name=None):
             case_kv = {}
             if sheet_name in sheet_list:
                 sheet = Handle_excel(filePathList[i]).get_sheet_by_name(sheet_name)
-                case_kv[f'sheetname{count}'] = sheet_name
-                case_kv[f'file{count}'] = fileNameList[i]
-                case_kv[f'filepath{count}'] = filePathList[i]
+                case_kv[f'sheetname'] = sheet_name
+                case_kv[f'file'] = fileNameList[i]
+                case_kv[f'filepath'] = filePathList[i]
 
                 stepkv = Handle_excel(filePathList[i]).getExecValuesOfSheet(sheet, 'exec', 'y', sheet_rule_list)
-                case_kv[f'filesheet{count}'] = stepkv
+                case_kv[f'filesheet'] = stepkv
                 case_list.append(case_kv)
             else:
                 print(f'2Input sheet name was wrong(not in excel), please check it.{filePathList[i]}')
@@ -323,12 +323,12 @@ def excel_to_case(file_name, no_current_folder=None, sheet_name=None):
                 case_kv = {}
                 count2 = k + 1
                 sheet = Handle_excel(filePathList[i]).get_sheet_by_name(sheet_list[k])
-                case_kv[f'sheetname{count2}'] = sheet_list[k]
-                case_kv[f'file{count2}'] = fileNameList[i]
-                case_kv[f'filepath{count2}'] = filePathList[i]
+                case_kv[f'sheetname'] = sheet_list[k]
+                case_kv[f'file'] = fileNameList[i]
+                case_kv[f'filepath'] = filePathList[i]
 
                 stepkv = Handle_excel(filePathList[i]).getExecValuesOfSheet(sheet, 'exec', 'y', sheet_rule_list)
-                case_kv[f'filesheet{count2}'] = stepkv
+                case_kv[f'filesheet'] = stepkv
 
                 case_list.append(case_kv)
     return case_list

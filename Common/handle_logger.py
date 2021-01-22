@@ -1,4 +1,5 @@
 import logging, os
+import logging.handlers
 from Common.handle_config import HandleConfig
 from Common.setting import BASE_DIR, REPORT_DIR, LOG_DIR
 from Common.handle_config2 import ReadWriteConfFile
@@ -17,6 +18,10 @@ class HandleLogger:
         fmt = '%(asctime)s %(name)s %(levelname)s %(filename)s-%(lineno)d line：%(message)s'
         self.case_logger.setLevel(logging.DEBUG)  # 指定日志收集器的日志等级
 
+        sizefilehandler = logging.handlers.RotatingFileHandler(log_file, mode='a', maxBytes=1024*1024*5, backupCount=10,
+                                                               encoding='utf-8', delay=False)
+
+
         console_handle = logging.StreamHandler()  # 定义一个控制台输出渠道
         file_handle2 = logging.FileHandler(log_file, encoding='utf-8')  # 定义一个文件输出渠道
         file_handle = logging.FileHandler(log_file_format, encoding='utf-8')
@@ -33,6 +38,7 @@ class HandleLogger:
         file_handle2.setFormatter(verbose_formatter)
 
         # 将日志收集器与输出渠道对接
+        self.case_logger.addHandler(sizefilehandler)
         self.case_logger.addHandler(console_handle)
         self.case_logger.addHandler(file_handle)
         self.case_logger.addHandler(file_handle2)

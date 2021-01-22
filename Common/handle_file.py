@@ -41,6 +41,58 @@ def file_copy(file_path, file_name, file_tmp, copy_to_path, rename=None):
 
     return file_copy(file_path, file_name, file_tmp, copy_to_path)
 
+def file_copy_for_report(file_path, file_name, file_tmp, copy_to_path, rename=None):
+
+    tmpf = os.path.join(file_path, file_tmp)
+    tmpf = tmpf.replace('\\', '/')
+    re_rule = '_report'
+
+    if rename and rename == re_rule:
+        path_list = file_name.split('.')
+        if re_rule not in path_list[0]:
+            file_name = path_list[0] + re_rule + '.' + path_list[1]
+        tmpt = os.path.join(copy_to_path, file_name)
+    elif rename and rename != re_rule:
+        path_list = file_name.split('.')
+        if re_rule not in path_list[0]:
+            file_name = path_list[0] + re_rule + '.' + path_list[1]
+        tmpt = os.path.join(copy_to_path, file_name)
+    else:
+        path_list = file_name.split('.')
+        if re_rule not in path_list[0]:
+            file_name = path_list[0] + re_rule + '.' + path_list[1]
+        tmpt = os.path.join(copy_to_path, file_name)
+        tmpt = tmpt.replace('\\', '/')
+
+    if not os.path.exists(tmpt):
+        shutil.copy(tmpf, tmpt)
+        return file_name
+    elif os.path.exists(tmpt) and (rename is None or rename == ''):
+        shutil.copy(tmpf, tmpt)
+        return file_name
+    else:
+        pass
+
+    num = 1
+    if re.findall('\((\d+)\)', file_name):
+        print(file_name)
+        num = re.findall('\((\d+)\)', file_name)
+        print(num)
+        new_num = int(num[0]) + 1
+        file_name = file_name.replace(num[0], str(new_num))
+        return file_copy_for_report(file_path, file_name, file_tmp, copy_to_path)
+    path_list = file_name.split('.')
+
+    if rename and rename == re_rule:
+        if re_rule in path_list[0]:
+            file_name = path_list[0] + f'({num}).' + path_list[1]
+        else:
+            file_name = path_list[0] + re_rule + f'({num}).' + path_list[1]
+    else:
+        file_name = path_list[0] + f'.' + path_list[1]
+
+    return file_copy_for_report(file_path, file_name, file_tmp, copy_to_path)
+
 
 def file_unzip(file_name: str, dir_name):
     try:
@@ -125,7 +177,24 @@ def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
             s = s + ',' + f
     return s
 
+def file_and_folder_copy_report(input_path, copy_to_path, ignore=[], rename=None):
 
+    filelists = []
+    _dfs_zip_file(input_path, filelists, ignore)
+    s = ''
+    for file in filelists:
+        dirs_f = os.path.dirname(file)
+        dirs_t = dirs_f.replace(input_path, copy_to_path)
+        os.makedirs(dirs_t, exist_ok=True)
+
+        name = ntpath.basename(file)
+        name_tmp = ntpath.basename(file)
+        f = file_copy_for_report(dirs_f, name, name_tmp, dirs_t, rename)
+        if s == '':
+            s = s + f
+        else:
+            s = s + ',' + f
+    return s
 
 
 

@@ -10766,3 +10766,491 @@ AssertionError
 2020-12-20 12:56:04,890 LOG INFO conftest.py-28 line：********************测试执行结束********************
 2020-12-20 12:56:04,890 LOG INFO conftest.py-29 line：****************************************************************************************************
 2020-12-20 12:56:05,010 LOG INFO runner_html.py-82 line：测试使用时间 0:00:02
+----------传入参数<--file>,测试excel：D:\desk20201127\ksgit\Datas
+2021-02-13 16:22:57,873 LOG INFO runner_html.py-84 line：----------传入参数<--file>,测试excel：D:\desk20201127\ksgit\Datas
+----------传入参数<--sheet>,测试excel sheet name：None
+2021-02-13 16:22:57,884 LOG INFO runner_html.py-85 line：----------传入参数<--sheet>,测试excel sheet name：None
+----------传入参数<--folder>,测试文件或文件夹的文件：None
+2021-02-13 16:22:57,884 LOG INFO runner_html.py-86 line：----------传入参数<--folder>,测试文件或文件夹的文件：None
+----------传入参数<--report>,指定测试报告文件夹：2021-02-13
+2021-02-13 16:22:57,884 LOG INFO runner_html.py-87 line：----------传入参数<--report>,指定测试报告文件夹：2021-02-13
+测试报告文件夹：D:\desk20201127\ksgit\Report\2021-02-13_html
+2021-02-13 16:22:57,884 LOG INFO runner_html.py-89 line：测试报告文件夹：D:\desk20201127\ksgit\Report\2021-02-13_html
+****************************************************************************************************
+2021-02-13 16:23:08,874 LOG INFO conftest.py-13 line：****************************************************************************************************
+********************测试执行开始********************
+2021-02-13 16:23:08,874 LOG INFO conftest.py-14 line：********************测试执行开始********************
+----------requests_session setup----------
+2021-02-13 16:23:08,874 LOG INFO conftest.py-17 line：----------requests_session setup----------
+获取session：<requests.sessions.Session object at 0x000001D7B716E248>
+2021-02-13 16:23:08,884 LOG INFO conftest.py-18 line：获取session：<requests.sessions.Session object at 0x000001D7B716E248>
+API_interface_test
+2021-02-13 16:23:08,884 LOG INFO test_api.py-30 line：API_interface_test
+FILE SHEET： t_接  FILE NAME： test_apidata - 副本.xlsx  FILE PATH： D:/desk20201127/ksgit/Datas/test_apidata - 副本.xlsx
+2021-02-13 16:23:08,894 LOG INFO test_api.py-31 line：FILE SHEET： t_接  FILE NAME： test_apidata - 副本.xlsx  FILE PATH： D:/desk20201127/ksgit/Datas/test_apidata - 副本.xlsx
+Execute test suite: TestAPI
+2021-02-13 16:23:09,084 LOG INFO test_api.py-38 line：Execute test suite: TestAPI
+Execute test case: t_接
+2021-02-13 16:23:09,084 LOG INFO test_api.py-39 line：Execute test case: t_接
+Test title：充1
+2021-02-13 16:23:09,084 LOG INFO test_api.py-59 line：Test title：充1
+Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+2021-02-13 16:23:09,084 LOG INFO test_api.py-76 line：Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+执行函数:seturl
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-333 line：执行函数:seturl
+输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-336 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+值是：http://testingedu.com.cn:8081/inter/HTTP
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-354 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+Function return value：None
+2021-02-13 16:23:09,084 LOG INFO test_api.py-50 line：Function return value：None
+Test datas:【title:[], method:[addheader], input:[token], request_data:[]】
+2021-02-13 16:23:09,084 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[addheader], input:[token], request_data:[]】
+执行函数:addheader
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-314 line：执行函数:addheader
+headers_key:[token]
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-317 line：headers_key:[token]
+headers_value_before:[]
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-318 line：headers_value_before:[]
+headers_value_after(__get_relations):[None]
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-320 line：headers_value_after(__get_relations):[None]
+Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': None}
+2021-02-13 16:23:09,084 LOG INFO test_api.py-50 line：Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': None}
+Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+2021-02-13 16:23:09,084 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+执行函数:【'post'】
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-358 line：执行函数:【'post'】
+值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+2021-02-13 16:23:09,084 LOG INFO apiKeyWords.py-354 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': None}]
+2021-02-13 16:23:09,094 LOG INFO apiKeyWords.py-354 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': None}]
+值是：请求体:[None]
+2021-02-13 16:23:09,094 LOG INFO apiKeyWords.py-354 line：值是：请求体:[None]
+值是：返回值:[{'status': 200, 'msg': 'success', 'token': '89e43ff749524427b6824f022ab9ffd5'}]
+2021-02-13 16:23:09,274 LOG INFO apiKeyWords.py-354 line：值是：返回值:[{'status': 200, 'msg': 'success', 'token': '89e43ff749524427b6824f022ab9ffd5'}]
+Function return value：{'status': 200, 'msg': 'success', 'token': '89e43ff749524427b6824f022ab9ffd5'}
+2021-02-13 16:23:09,274 LOG INFO test_api.py-50 line：Function return value：{'status': 200, 'msg': 'success', 'token': '89e43ff749524427b6824f022ab9ffd5'}
+Test title：充2
+2021-02-13 16:23:09,284 LOG INFO test_api.py-59 line：Test title：充2
+Test datas:【title:[充2], method:[savejson], input:[token], request_data:[token]】
+2021-02-13 16:23:09,284 LOG INFO test_api.py-76 line：Test datas:【title:[充2], method:[savejson], input:[token], request_data:[token]】
+执行函数:savejson
+2021-02-13 16:23:09,284 LOG INFO apiKeyWords.py-288 line：执行函数:savejson
+----------数据预处理after:--__abs(datan)>>token>>['token']--
+2021-02-13 16:23:09,284 LOG INFO apiKeyWords.py-223 line：----------数据预处理after:--__abs(datan)>>token>>['token']--
+relations_key:[token]
+2021-02-13 16:23:09,284 LOG INFO apiKeyWords.py-295 line：relations_key:[token]
+jsonres_key:[['token']]
+2021-02-13 16:23:09,284 LOG INFO apiKeyWords.py-296 line：jsonres_key:[['token']]
+self.relations[token] = self.jsonres['token']
+2021-02-13 16:23:09,284 LOG INFO apiKeyWords.py-297 line：self.relations[token] = self.jsonres['token']
+值是：89e43ff749524427b6824f022ab9ffd5
+2021-02-13 16:23:09,284 LOG INFO apiKeyWords.py-354 line：值是：89e43ff749524427b6824f022ab9ffd5
+Function return value：{'token': '89e43ff749524427b6824f022ab9ffd5'}
+2021-02-13 16:23:09,294 LOG INFO test_api.py-50 line：Function return value：{'token': '89e43ff749524427b6824f022ab9ffd5'}
+Test datas:【title:[], method:[addheader], input:[token], request_data:[{token}]】
+2021-02-13 16:23:09,294 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[addheader], input:[token], request_data:[{token}]】
+执行函数:addheader
+2021-02-13 16:23:09,294 LOG INFO apiKeyWords.py-314 line：执行函数:addheader
+headers_key:[token]
+2021-02-13 16:23:09,294 LOG INFO apiKeyWords.py-317 line：headers_key:[token]
+headers_value_before:[{token}]
+2021-02-13 16:23:09,294 LOG INFO apiKeyWords.py-318 line：headers_value_before:[{token}]
+headers_value_after(__get_relations):[{token}]
+2021-02-13 16:23:09,294 LOG INFO apiKeyWords.py-320 line：headers_value_after(__get_relations):[{token}]
+Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '{token}'}
+2021-02-13 16:23:09,294 LOG INFO test_api.py-50 line：Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '{token}'}
+Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "123456", "nickname":"熊明"}]】
+2021-02-13 16:23:09,294 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "123456", "nickname":"熊明"}]】
+执行函数:【'post'】
+2021-02-13 16:23:09,294 LOG INFO apiKeyWords.py-358 line：执行函数:【'post'】
+值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2021-02-13 16:23:09,304 LOG INFO apiKeyWords.py-354 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '{token}'}]
+2021-02-13 16:23:09,304 LOG INFO apiKeyWords.py-354 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '{token}'}]
+----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "123456", "nickname":"熊明"}--
+2021-02-13 16:23:09,304 LOG INFO apiKeyWords.py-60 line：----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "123456", "nickname":"熊明"}--
+----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '123456', 'nickname': '熊明'}--
+2021-02-13 16:23:09,304 LOG INFO apiKeyWords.py-61 line：----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '123456', 'nickname': '熊明'}--
+值是：请求体:[{'username': '', 'pwd': '123456', 'nickname': '熊明'}]
+2021-02-13 16:23:09,304 LOG INFO apiKeyWords.py-354 line：值是：请求体:[{'username': '', 'pwd': '123456', 'nickname': '熊明'}]
+值是：返回值:[{'status': 405, 'msg': '非法请求'}]
+2021-02-13 16:23:09,344 LOG INFO apiKeyWords.py-354 line：值是：返回值:[{'status': 405, 'msg': '非法请求'}]
+Function return value：{'status': 405, 'msg': '非法请求'}
+2021-02-13 16:23:09,354 LOG INFO test_api.py-50 line：Function return value：{'status': 405, 'msg': '非法请求'}
+Test datas:【title:[], method:[assertequals], input:[status], request_data:[200]】
+2021-02-13 16:23:09,354 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[assertequals], input:[status], request_data:[200]】
+执行函数:assertequals
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-180 line：执行函数:assertequals
+----------数据预处理after:--__abs(datan)>>status>>['status']--
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-223 line：----------数据预处理after:--__abs(datan)>>status>>['status']--
+key:[status]
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-193 line：key:[status]
+ACTUAL_VALUE:[405]
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-194 line：ACTUAL_VALUE:[405]
+EXPECT_VALUE:[200]
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-195 line：EXPECT_VALUE:[200]
+值是：FAIL
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-354 line：值是：FAIL
+--Fail--用例失败--
+2021-02-13 16:23:09,354 LOG INFO apiKeyWords.py-201 line：--Fail--用例失败--
+
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+2021-02-13 16:23:09,354 LOG ERROR apiKeyWords.py-202 line：
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+Function return value：FAIL
+2021-02-13 16:23:09,364 LOG INFO test_api.py-50 line：Function return value：FAIL
+Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "126", "nickname":"熊明"}]】
+2021-02-13 16:23:09,364 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "126", "nickname":"熊明"}]】
+执行函数:【'post'】
+2021-02-13 16:23:09,364 LOG INFO apiKeyWords.py-358 line：执行函数:【'post'】
+值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2021-02-13 16:23:09,364 LOG INFO apiKeyWords.py-354 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '{token}'}]
+2021-02-13 16:23:09,364 LOG INFO apiKeyWords.py-354 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '{token}'}]
+----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "126", "nickname":"熊明"}--
+2021-02-13 16:23:09,364 LOG INFO apiKeyWords.py-60 line：----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "126", "nickname":"熊明"}--
+----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '126', 'nickname': '熊明'}--
+2021-02-13 16:23:09,364 LOG INFO apiKeyWords.py-61 line：----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '126', 'nickname': '熊明'}--
+值是：请求体:[{'username': '', 'pwd': '126', 'nickname': '熊明'}]
+2021-02-13 16:23:09,364 LOG INFO apiKeyWords.py-354 line：值是：请求体:[{'username': '', 'pwd': '126', 'nickname': '熊明'}]
+值是：返回值:[{'status': 405, 'msg': '非法请求'}]
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-354 line：值是：返回值:[{'status': 405, 'msg': '非法请求'}]
+Function return value：{'status': 405, 'msg': '非法请求'}
+2021-02-13 16:23:09,414 LOG INFO test_api.py-50 line：Function return value：{'status': 405, 'msg': '非法请求'}
+Test datas:【title:[], method:[assertequals], input:[status], request_data:[402]】
+2021-02-13 16:23:09,414 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[assertequals], input:[status], request_data:[402]】
+执行函数:assertequals
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-180 line：执行函数:assertequals
+----------数据预处理after:--__abs(datan)>>status>>['status']--
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-223 line：----------数据预处理after:--__abs(datan)>>status>>['status']--
+key:[status]
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-193 line：key:[status]
+ACTUAL_VALUE:[405]
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-194 line：ACTUAL_VALUE:[405]
+EXPECT_VALUE:[402]
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-195 line：EXPECT_VALUE:[402]
+值是：FAIL
+2021-02-13 16:23:09,414 LOG INFO apiKeyWords.py-354 line：值是：FAIL
+--Fail--用例失败--
+2021-02-13 16:23:09,424 LOG INFO apiKeyWords.py-201 line：--Fail--用例失败--
+
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+2021-02-13 16:23:09,424 LOG ERROR apiKeyWords.py-202 line：
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+Function return value：FAIL
+2021-02-13 16:23:09,424 LOG INFO test_api.py-50 line：Function return value：FAIL
+Write Excel：save_excel_teardown
+2021-02-13 16:23:09,644 LOG INFO test_api.py-54 line：Write Excel：save_excel_teardown
+销毁session：<requests.sessions.Session object at 0x000001D7B716E248>
+2021-02-13 16:23:09,644 LOG INFO conftest.py-21 line：销毁session：<requests.sessions.Session object at 0x000001D7B716E248>
+----------requests_session teardown----------
+2021-02-13 16:23:09,644 LOG INFO conftest.py-22 line：----------requests_session teardown----------
+********************测试执行结束********************
+2021-02-13 16:23:09,644 LOG INFO conftest.py-23 line：********************测试执行结束********************
+****************************************************************************************************
+2021-02-13 16:23:09,644 LOG INFO conftest.py-24 line：****************************************************************************************************
+****************************************************************************************************
+2021-02-13 16:23:09,644 LOG INFO conftest.py-13 line：****************************************************************************************************
+********************测试执行开始********************
+2021-02-13 16:23:09,654 LOG INFO conftest.py-14 line：********************测试执行开始********************
+----------requests_session setup----------
+2021-02-13 16:23:09,654 LOG INFO conftest.py-17 line：----------requests_session setup----------
+获取session：<requests.sessions.Session object at 0x000001D7B77BF248>
+2021-02-13 16:23:09,654 LOG INFO conftest.py-18 line：获取session：<requests.sessions.Session object at 0x000001D7B77BF248>
+API_interface_test
+2021-02-13 16:23:09,654 LOG INFO test_api.py-30 line：API_interface_test
+FILE SHEET： t_接口222222  FILE NAME： test_apidata - 副本.xlsx  FILE PATH： D:/desk20201127/ksgit/Datas/test_apidata - 副本.xlsx
+2021-02-13 16:23:09,654 LOG INFO test_api.py-31 line：FILE SHEET： t_接口222222  FILE NAME： test_apidata - 副本.xlsx  FILE PATH： D:/desk20201127/ksgit/Datas/test_apidata - 副本.xlsx
+Execute test suite: TestAPI
+2021-02-13 16:23:09,774 LOG INFO test_api.py-38 line：Execute test suite: TestAPI
+Execute test case: t_接口222222
+2021-02-13 16:23:09,774 LOG INFO test_api.py-39 line：Execute test case: t_接口222222
+Test title：系统1
+2021-02-13 16:23:09,774 LOG INFO test_api.py-59 line：Test title：系统1
+Test datas:【title:[系统1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+2021-02-13 16:23:09,774 LOG INFO test_api.py-76 line：Test datas:【title:[系统1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[{user}]】
+执行函数:seturl
+2021-02-13 16:23:09,774 LOG INFO apiKeyWords.py-333 line：执行函数:seturl
+输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2021-02-13 16:23:09,774 LOG INFO apiKeyWords.py-336 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+值是：http://testingedu.com.cn:8081/inter/HTTP
+2021-02-13 16:23:09,774 LOG INFO apiKeyWords.py-354 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+Function return value：None
+2021-02-13 16:23:09,774 LOG INFO test_api.py-50 line：Function return value：None
+Write Excel：save_excel_teardown
+2021-02-13 16:23:09,834 LOG INFO test_api.py-54 line：Write Excel：save_excel_teardown
+销毁session：<requests.sessions.Session object at 0x000001D7B77BF248>
+2021-02-13 16:23:09,834 LOG INFO conftest.py-21 line：销毁session：<requests.sessions.Session object at 0x000001D7B77BF248>
+----------requests_session teardown----------
+2021-02-13 16:23:09,834 LOG INFO conftest.py-22 line：----------requests_session teardown----------
+********************测试执行结束********************
+2021-02-13 16:23:09,834 LOG INFO conftest.py-23 line：********************测试执行结束********************
+****************************************************************************************************
+2021-02-13 16:23:09,834 LOG INFO conftest.py-24 line：****************************************************************************************************
+****************************************************************************************************
+2021-02-13 16:23:09,834 LOG INFO conftest.py-13 line：****************************************************************************************************
+********************测试执行开始********************
+2021-02-13 16:23:09,834 LOG INFO conftest.py-14 line：********************测试执行开始********************
+----------requests_session setup----------
+2021-02-13 16:23:09,834 LOG INFO conftest.py-17 line：----------requests_session setup----------
+获取session：<requests.sessions.Session object at 0x000001D7B7759108>
+2021-02-13 16:23:09,834 LOG INFO conftest.py-18 line：获取session：<requests.sessions.Session object at 0x000001D7B7759108>
+API_interface_test
+2021-02-13 16:23:09,844 LOG INFO test_api.py-30 line：API_interface_test
+FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/Datas/test_apidata.xlsx
+2021-02-13 16:23:09,844 LOG INFO test_api.py-31 line：FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/Datas/test_apidata.xlsx
+Execute test suite: TestAPI
+2021-02-13 16:23:10,004 LOG INFO test_api.py-38 line：Execute test suite: TestAPI
+Execute test case: t_接
+2021-02-13 16:23:10,004 LOG INFO test_api.py-39 line：Execute test case: t_接
+Test title：充1
+2021-02-13 16:23:10,004 LOG INFO test_api.py-59 line：Test title：充1
+Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+2021-02-13 16:23:10,004 LOG INFO test_api.py-76 line：Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+执行函数:seturl
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-333 line：执行函数:seturl
+输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-336 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+值是：http://testingedu.com.cn:8081/inter/HTTP
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-354 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+Function return value：None
+2021-02-13 16:23:10,004 LOG INFO test_api.py-50 line：Function return value：None
+Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+2021-02-13 16:23:10,004 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+执行函数:【'post'】
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-358 line：执行函数:【'post'】
+值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-354 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-354 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+值是：请求体:[None]
+2021-02-13 16:23:10,004 LOG INFO apiKeyWords.py-354 line：值是：请求体:[None]
+值是：返回值:[{'status': 200, 'msg': 'success', 'token': 'd3610cf9cfaf4989b7e7a420dcb4d3c9'}]
+2021-02-13 16:23:10,064 LOG INFO apiKeyWords.py-354 line：值是：返回值:[{'status': 200, 'msg': 'success', 'token': 'd3610cf9cfaf4989b7e7a420dcb4d3c9'}]
+Function return value：{'status': 200, 'msg': 'success', 'token': 'd3610cf9cfaf4989b7e7a420dcb4d3c9'}
+2021-02-13 16:23:10,064 LOG INFO test_api.py-50 line：Function return value：{'status': 200, 'msg': 'success', 'token': 'd3610cf9cfaf4989b7e7a420dcb4d3c9'}
+Test title：充2
+2021-02-13 16:23:10,064 LOG INFO test_api.py-59 line：Test title：充2
+Test datas:【title:[充2], method:[savejson], input:[token1], request_data:[token]】
+2021-02-13 16:23:10,064 LOG INFO test_api.py-76 line：Test datas:【title:[充2], method:[savejson], input:[token1], request_data:[token]】
+执行函数:savejson
+2021-02-13 16:23:10,064 LOG INFO apiKeyWords.py-288 line：执行函数:savejson
+----------数据预处理after:--__abs(datan)>>token>>['token']--
+2021-02-13 16:23:10,064 LOG INFO apiKeyWords.py-223 line：----------数据预处理after:--__abs(datan)>>token>>['token']--
+relations_key:[token1]
+2021-02-13 16:23:10,064 LOG INFO apiKeyWords.py-295 line：relations_key:[token1]
+jsonres_key:[['token']]
+2021-02-13 16:23:10,064 LOG INFO apiKeyWords.py-296 line：jsonres_key:[['token']]
+self.relations[token1] = self.jsonres['token']
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-297 line：self.relations[token1] = self.jsonres['token']
+值是：d3610cf9cfaf4989b7e7a420dcb4d3c9
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-354 line：值是：d3610cf9cfaf4989b7e7a420dcb4d3c9
+Function return value：{'token1': 'd3610cf9cfaf4989b7e7a420dcb4d3c9'}
+2021-02-13 16:23:10,074 LOG INFO test_api.py-50 line：Function return value：{'token1': 'd3610cf9cfaf4989b7e7a420dcb4d3c9'}
+Test datas:【title:[], method:[addheader], input:[token], request_data:[${token1}]】
+2021-02-13 16:23:10,074 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[addheader], input:[token], request_data:[${token1}]】
+执行函数:addheader
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-314 line：执行函数:addheader
+headers_key:[token]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-317 line：headers_key:[token]
+headers_value_before:[${token1}]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-318 line：headers_value_before:[${token1}]
+headers_value_after(__get_relations):[${token1}]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-320 line：headers_value_after(__get_relations):[${token1}]
+Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '${token1}'}
+2021-02-13 16:23:10,074 LOG INFO test_api.py-50 line：Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '${token1}'}
+Test datas:【title:[], method:[savedata], input:[password], request_data:[${pwd}]】
+2021-02-13 16:23:10,074 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[savedata], input:[password], request_data:[${pwd}]】
+执行函数:savedata
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-265 line：执行函数:savedata
+relations_key:[password]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-271 line：relations_key:[password]
+relations_value:[${pwd}]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-272 line：relations_value:[${pwd}]
+self.relations[password] = ${pwd}
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-273 line：self.relations[password] = ${pwd}
+Function return value：{'password': '${pwd}'}
+2021-02-13 16:23:10,074 LOG INFO test_api.py-50 line：Function return value：{'password': '${pwd}'}
+Test datas:【title:[], method:[savedata], input:[user1], request_data:[康]】
+2021-02-13 16:23:10,074 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[savedata], input:[user1], request_data:[康]】
+执行函数:savedata
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-265 line：执行函数:savedata
+relations_key:[user1]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-271 line：relations_key:[user1]
+relations_value:[康]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-272 line：relations_value:[康]
+self.relations[user1] = 康
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-273 line：self.relations[user1] = 康
+值是：康
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-354 line：值是：康
+Function return value：{'user1': '康'}
+2021-02-13 16:23:10,074 LOG INFO test_api.py-50 line：Function return value：{'user1': '康'}
+Test datas:【title:[], method:[savedata], input:[user2], request_data:[是]】
+2021-02-13 16:23:10,074 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[savedata], input:[user2], request_data:[是]】
+执行函数:savedata
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-265 line：执行函数:savedata
+relations_key:[user2]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-271 line：relations_key:[user2]
+relations_value:[是]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-272 line：relations_value:[是]
+self.relations[user2] = 是
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-273 line：self.relations[user2] = 是
+值是：是
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-354 line：值是：是
+Function return value：{'user2': '是'}
+2021-02-13 16:23:10,074 LOG INFO test_api.py-50 line：Function return value：{'user2': '是'}
+Test datas:【title:[], method:[saveparam], input:[token], request_data:[${token1}]】
+2021-02-13 16:23:10,074 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[saveparam], input:[token], request_data:[${token1}]】
+执行函数:saveparam
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-237 line：执行函数:saveparam
+saveparam_key:[token]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-249 line：saveparam_key:[token]
+saveparam_value:[${token1}]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-250 line：saveparam_value:[${token1}]
+self.param[token] = ${token1}
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-251 line：self.param[token] = ${token1}
+值是：{'token': '${token1}'}
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-354 line：值是：{'token': '${token1}'}
+Function return value：{'token': '${token1}'}
+2021-02-13 16:23:10,074 LOG INFO test_api.py-50 line：Function return value：{'token': '${token1}'}
+Test datas:【title:[], method:[saveparam], input:[aaa], request_data:[啊]】
+2021-02-13 16:23:10,074 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[saveparam], input:[aaa], request_data:[啊]】
+执行函数:saveparam
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-237 line：执行函数:saveparam
+saveparam_key:[aaa]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-249 line：saveparam_key:[aaa]
+saveparam_value:[啊]
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-250 line：saveparam_value:[啊]
+self.param[aaa] = 啊
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-251 line：self.param[aaa] = 啊
+值是：{'token': '${token1}', 'aaa': '啊'}
+2021-02-13 16:23:10,074 LOG INFO apiKeyWords.py-354 line：值是：{'token': '${token1}', 'aaa': '啊'}
+Function return value：{'aaa': '啊'}
+2021-02-13 16:23:10,084 LOG INFO test_api.py-50 line：Function return value：{'aaa': '啊'}
+Test datas:【title:[], method:[saveparam], input:[user], request_data:[${user1}]】
+2021-02-13 16:23:10,084 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[saveparam], input:[user], request_data:[${user1}]】
+执行函数:saveparam
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-237 line：执行函数:saveparam
+saveparam_key:[user]
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-249 line：saveparam_key:[user]
+saveparam_value:[${user1}]
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-250 line：saveparam_value:[${user1}]
+self.param[user] = ${user1}
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-251 line：self.param[user] = ${user1}
+值是：{'token': '${token1}', 'aaa': '啊', 'user': '${user1}'}
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-354 line：值是：{'token': '${token1}', 'aaa': '啊', 'user': '${user1}'}
+Function return value：{'user': '${user1}'}
+2021-02-13 16:23:10,084 LOG INFO test_api.py-50 line：Function return value：{'user': '${user1}'}
+Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "", "nickname":"熊明"}]】
+2021-02-13 16:23:10,084 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "", "nickname":"熊明"}]】
+执行函数:【'post'】
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-358 line：执行函数:【'post'】
+值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-354 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '${token1}'}]
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-354 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '${token1}'}]
+----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "", "nickname":"熊明"}--
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-60 line：----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "", "nickname":"熊明"}--
+----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '', 'nickname': '熊明'}--
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-61 line：----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '', 'nickname': '熊明'}--
+值是：请求体:[{'username': '', 'pwd': '', 'nickname': '熊明'}]
+2021-02-13 16:23:10,084 LOG INFO apiKeyWords.py-354 line：值是：请求体:[{'username': '', 'pwd': '', 'nickname': '熊明'}]
+值是：返回值:[{'status': 405, 'msg': '非法请求'}]
+2021-02-13 16:23:10,114 LOG INFO apiKeyWords.py-354 line：值是：返回值:[{'status': 405, 'msg': '非法请求'}]
+Function return value：{'status': 405, 'msg': '非法请求'}
+2021-02-13 16:23:10,114 LOG INFO test_api.py-50 line：Function return value：{'status': 405, 'msg': '非法请求'}
+Test datas:【title:[], method:[assertequals], input:[status], request_data:[200]】
+2021-02-13 16:23:10,114 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[assertequals], input:[status], request_data:[200]】
+执行函数:assertequals
+2021-02-13 16:23:10,114 LOG INFO apiKeyWords.py-180 line：执行函数:assertequals
+----------数据预处理after:--__abs(datan)>>status>>['status']--
+2021-02-13 16:23:10,114 LOG INFO apiKeyWords.py-223 line：----------数据预处理after:--__abs(datan)>>status>>['status']--
+key:[status]
+2021-02-13 16:23:10,114 LOG INFO apiKeyWords.py-193 line：key:[status]
+ACTUAL_VALUE:[405]
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-194 line：ACTUAL_VALUE:[405]
+EXPECT_VALUE:[200]
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-195 line：EXPECT_VALUE:[200]
+值是：FAIL
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-354 line：值是：FAIL
+--Fail--用例失败--
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-201 line：--Fail--用例失败--
+
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+2021-02-13 16:23:10,124 LOG ERROR apiKeyWords.py-202 line：
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+Function return value：FAIL
+2021-02-13 16:23:10,124 LOG INFO test_api.py-50 line：Function return value：FAIL
+Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": ${password}, "nickname":"熊明"}]】
+2021-02-13 16:23:10,124 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": ${password}, "nickname":"熊明"}]】
+执行函数:【'post'】
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-358 line：执行函数:【'post'】
+值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-354 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '${token1}'}]
+2021-02-13 16:23:10,124 LOG INFO apiKeyWords.py-354 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '${token1}'}]
+Execute method 'post' error.
+2021-02-13 16:23:10,124 LOG ERROR apiKeyWords.py-385 line：Execute method 'post' error.
+Expecting value: line 1 column 25 (char 24)
+2021-02-13 16:23:10,124 LOG ERROR apiKeyWords.py-386 line：Expecting value: line 1 column 25 (char 24)
+Function return value：{'status': 405, 'msg': '非法请求'}
+2021-02-13 16:23:10,134 LOG INFO test_api.py-50 line：Function return value：{'status': 405, 'msg': '非法请求'}
+Test datas:【title:[], method:[assertequals], input:[status], request_data:[402]】
+2021-02-13 16:23:10,134 LOG INFO test_api.py-76 line：Test datas:【title:[], method:[assertequals], input:[status], request_data:[402]】
+执行函数:assertequals
+2021-02-13 16:23:10,134 LOG INFO apiKeyWords.py-180 line：执行函数:assertequals
+----------数据预处理after:--__abs(datan)>>status>>['status']--
+2021-02-13 16:23:10,134 LOG INFO apiKeyWords.py-223 line：----------数据预处理after:--__abs(datan)>>status>>['status']--
+key:[status]
+2021-02-13 16:23:10,134 LOG INFO apiKeyWords.py-193 line：key:[status]
+ACTUAL_VALUE:[405]
+2021-02-13 16:23:10,144 LOG INFO apiKeyWords.py-194 line：ACTUAL_VALUE:[405]
+EXPECT_VALUE:[402]
+2021-02-13 16:23:10,144 LOG INFO apiKeyWords.py-195 line：EXPECT_VALUE:[402]
+值是：FAIL
+2021-02-13 16:23:10,144 LOG INFO apiKeyWords.py-354 line：值是：FAIL
+--Fail--用例失败--
+2021-02-13 16:23:10,144 LOG INFO apiKeyWords.py-201 line：--Fail--用例失败--
+
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+2021-02-13 16:23:10,144 LOG ERROR apiKeyWords.py-202 line：
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\apikeywords\apiKeyWords.py", line 198, in assertequals
+    assert actual_value == expect_value
+AssertionError
+Function return value：FAIL
+2021-02-13 16:23:10,144 LOG INFO test_api.py-50 line：Function return value：FAIL
+Write Excel：save_excel_teardown
+2021-02-13 16:23:10,224 LOG INFO test_api.py-54 line：Write Excel：save_excel_teardown
+销毁session：<requests.sessions.Session object at 0x000001D7B7759108>
+2021-02-13 16:23:10,224 LOG INFO conftest.py-21 line：销毁session：<requests.sessions.Session object at 0x000001D7B7759108>
+----------requests_session teardown----------
+2021-02-13 16:23:10,224 LOG INFO conftest.py-22 line：----------requests_session teardown----------
+********************测试执行结束********************
+2021-02-13 16:23:10,224 LOG INFO conftest.py-23 line：********************测试执行结束********************
+****************************************************************************************************
+2021-02-13 16:23:10,224 LOG INFO conftest.py-24 line：****************************************************************************************************
+测试使用时间 0:00:12
+2021-02-13 16:23:10,564 LOG INFO runner_html.py-101 line：测试使用时间 0:00:12

@@ -1,8 +1,7 @@
 import logging, os
 import logging.handlers
-from Common.handle_config import HandleConfig
-from Common.setting import BASE_DIR, REPORT_DIR, LOG_DIR
-from Common.handle_config2 import ReadWriteConfFile
+from Common.setting import REPORT_DIR, LOG_DIR
+from Common.handle_config import ReadWriteConfFile
 get_logdir = ReadWriteConfFile().get_option('report_dir', 'report_dir_folder')
 num = ReadWriteConfFile().get_option('report_file', 'file_num')
 log_dir = os.path.join(REPORT_DIR, get_logdir)
@@ -10,9 +9,9 @@ log_file_format = os.path.join(log_dir, f'{get_logdir}_{num}.log')
 
 log_file = os.path.join(LOG_DIR, 'Test.log')
 class HandleLogger:
-    '''
+    """
     定义一个日志处理类
-    '''
+    """
     def __init__(self):
         self.case_logger = logging.getLogger('LOG')  # 创建一个日志收集器
         fmt = '%(asctime)s %(name)s %(levelname)s %(filename)s-%(lineno)d line：%(message)s'
@@ -20,7 +19,6 @@ class HandleLogger:
 
         sizefilehandler = logging.handlers.RotatingFileHandler(log_file, mode='a', maxBytes=1024*1024*5, backupCount=10,
                                                                encoding='utf-8', delay=False)
-
 
         console_handle = logging.StreamHandler()  # 定义一个控制台输出渠道
         file_handle2 = logging.FileHandler(log_file, encoding='utf-8')  # 定义一个文件输出渠道

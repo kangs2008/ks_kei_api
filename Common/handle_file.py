@@ -1,5 +1,4 @@
 import re, os
-import glob
 import shutil
 
 import zipfile
@@ -23,9 +22,7 @@ def file_copy(file_path, file_name, file_tmp, copy_to_path, rename=None):
         return file_name
     num = 1
     if re.findall('\((\d+)\)', file_name):
-        print(file_name)
         num = re.findall('\((\d+)\)', file_name)
-        print(num)
         new_num = int(num[0]) + 1
         file_name = file_name.replace(num[0], str(new_num))
         return file_copy(file_path, file_name, file_tmp, copy_to_path)
@@ -75,9 +72,7 @@ def file_copy_for_report(file_path, file_name, file_tmp, copy_to_path, rename=No
 
     num = 1
     if re.findall('\((\d+)\)', file_name):
-        print(file_name)
         num = re.findall('\((\d+)\)', file_name)
-        print(num)
         new_num = int(num[0]) + 1
         file_name = file_name.replace(num[0], str(new_num))
         return file_copy_for_report(file_path, file_name, file_tmp, copy_to_path)
@@ -131,8 +126,6 @@ def _dfs_zip_file(input_path, result, ignore=[]):
     for file in files:
         filepath = os.path.join(input_path, file)
 
-        # if file in ignore:
-        #     continue
         if os.path.isdir(filepath):
             _dfs_zip_file(filepath, result, ignore)
         else:
@@ -196,20 +189,9 @@ def file_and_folder_copy_report(input_path, copy_to_path, ignore=[], rename=None
             s = s + ',' + f
     return s
 
-
-
-
-
-
-
 if __name__ == '__main__':
-    file_path = r'C:\Users\kangs\Desktop\yoyo\1'
-    file_name = r'新建 DOC 文档.doc'
-    copy_to_path = r'C:\Users\kangs\Desktop\yoyo\2'
-    output_path = r'C:\Users\kangs\Desktop\yoyo\2\aa.zip'
-    # file_del(copy_to_path)
-    # file_copy(file_path, file_name, file_name, copy_to_path, rename='1')
-    # file_zip_path(file_path, output_path, ignore=[])
-    # pass
-    # file_del(copy_to_path)
-    file_and_folder_copy(file_path, copy_to_path, ignore=['t_'], rename='1')
+    pass
+    # file_path = r'C:\Users\kangs\Desktop\yoyo\1'
+    # file_name = r'新建 DOC 文档.doc'
+    # copy_to_path = r'C:\Users\kangs\Desktop\yoyo\2'
+    # file_and_folder_copy(file_path, copy_to_path, ignore=['t_'], rename='1')

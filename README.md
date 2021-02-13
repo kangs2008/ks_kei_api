@@ -59,4 +59,4 @@
 - 根据要测试接口需要，可增加sql等方法和各种工具，完善该接口
 
 ## 截图
-![excel report](https://github.com/kangs2008/api_allure/blob/master/Sn.png)
+![excel report](Sn.png "Sn.png")

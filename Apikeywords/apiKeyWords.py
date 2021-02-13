@@ -4,7 +4,7 @@ import allure
 import jsonpath
 from Common.utils import mTime
 from Common.handle_logger import logger
-from Common.handle_excel import write_to_excel3
+from Common.handle_excel import write_to_excel
 class Http():
 
     def __init__(self, requests_session):
@@ -95,8 +95,8 @@ class Http():
                 logger.info('--Pass--用例成功--')
                 str_result = 'PASS'
         self.__allurestep(str_result)
-        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
-        write_to_excel3(sheet, str(res), row_pos, col_pos_v)
+        write_to_excel(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel(sheet, str(res), row_pos, col_pos_v)
         return str_result
 
     # def assertInText(self, data, sheet, row_pos, col_pos_c, col_pos_v):
@@ -172,8 +172,8 @@ class Http():
                 logger.info('--Pass--用例成功--')
                 str_result = 'PASS'
         self.__allurestep(str_result)
-        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
-        write_to_excel3(sheet, str(res), row_pos, col_pos_v)
+        write_to_excel(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel(sheet, str(res), row_pos, col_pos_v)
         return str_result
 
     def assertequals(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
@@ -208,8 +208,8 @@ class Http():
                 logger.info('--Pass--用例成功--')
                 str_result = 'PASS'
         self.__allurestep(str_result)
-        write_to_excel3(sheet, str_result, row_pos, col_pos_c)
-        write_to_excel3(sheet, str(actual_value), row_pos, col_pos_v)
+        write_to_excel(sheet, str_result, row_pos, col_pos_c)
+        write_to_excel(sheet, str(actual_value), row_pos, col_pos_v)
         return str_result
 
     def __abs(self, datan):
@@ -252,12 +252,12 @@ class Http():
 
                 self.param[input_path] = request_data_value
                 self.return_value(self.param)
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, str(request_data_value), row_pos, col_pos_v) # self.jsonres[data['request_data']]
+                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel(sheet, str(request_data_value), row_pos, col_pos_v) # self.jsonres[data['request_data']]
                 return {f'{input_path}': f'{request_data_value}'}
 
         except Exception as e:
-            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
             logger.error(e)
             pass
 
@@ -272,16 +272,16 @@ class Http():
                 logger.info(f"relations_value:[{request_data_path}]")
                 logger.info(f"self.relations[{apidata['input']}] = {request_data_path}")
                 if str(request_data_path).startswith('${'):
-                    write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-                    write_to_excel3(sheet, str(request_data_path), row_pos, col_pos_v)
+                    write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
+                    write_to_excel(sheet, str(request_data_path), row_pos, col_pos_v)
                 else:
                     self.relations[apidata['input'].strip()] = request_data_path
                     self.return_value(self.relations[apidata['input'].strip()])
-                    write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                    write_to_excel3(sheet, str(request_data_path), row_pos, col_pos_v) # self.jsonres[data['request_data']]
+                    write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                    write_to_excel(sheet, str(request_data_path), row_pos, col_pos_v) # self.jsonres[data['request_data']]
                 return {f'{apidata["input"].strip()}': f'{request_data_path}'}
         except Exception as e:
-            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
             logger.error(e)
 
     def savejson(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
@@ -298,14 +298,14 @@ class Http():
 
                 self.relations[apidata['input'].strip()] = str(request_data_value)
                 self.return_value(self.relations[apidata['input'].strip()])
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, str(request_data_value), row_pos, col_pos_v) # self.jsonres[data['request_data']]
+                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel(sheet, str(request_data_value), row_pos, col_pos_v) # self.jsonres[data['request_data']]
                 return {f'{apidata["input"].strip()}': f'{request_data_value}'}
 
         except Exception as e:
-            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
             return_str = f"key:'{request_data_path}'is not in {str(self.jsonres)}."
-            write_to_excel3(sheet, str(return_str), row_pos, col_pos_v)
+            write_to_excel(sheet, str(return_str), row_pos, col_pos_v)
             logger.error(return_str)
             logger.error(e)
             pass
@@ -321,8 +321,8 @@ class Http():
 
                 self.session.headers[apidata['input'].strip()] = rel
                 # self.return_value(rel)
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, str(rel), row_pos, col_pos_v)
+                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel(sheet, str(rel), row_pos, col_pos_v)
                 return self.session.headers
         except Exception as e:
             logger.error(f"key:'{self.__get_re(apidata['request_data'].strip())}' is not in [{self.relations}].")
@@ -338,11 +338,11 @@ class Http():
                 if path.startswith('http'):
                     self.url = path
                     self.return_value(self.url)
-                    write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                    write_to_excel3(sheet, str(apidata['input']), row_pos, col_pos_v)
+                    write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                    write_to_excel(sheet, str(apidata['input']), row_pos, col_pos_v)
                 else:
-                    write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-                    write_to_excel3(sheet, str(apidata['input']), row_pos, col_pos_v)
+                    write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
+                    write_to_excel(sheet, str(apidata['input']), row_pos, col_pos_v)
         except Exception as e:
             logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
             logger.error(e)
@@ -379,13 +379,13 @@ class Http():
                 self.result = self.session.post(new_url, json=_data, data=None, proxies=None)
                 self.jsonres = json.loads(self.result.text)
                 self.return_value(f'返回值:[{json.loads(self.result.text)}]')
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, str(self.jsonres), row_pos, col_pos_v)
+                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel(sheet, str(self.jsonres), row_pos, col_pos_v)
         except Exception as e:
             logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
             logger.error(e)
-            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-            write_to_excel3(sheet, str(self.result.text), row_pos, col_pos_v)
+            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel(sheet, str(self.result.text), row_pos, col_pos_v)
         finally:
             self.param = {}
         return self.jsonres
@@ -414,13 +414,13 @@ class Http():
                 self.result = self.session.post(new_url, params=_data, proxies=None)
                 self.jsonres = json.loads(self.result.text)
                 self.return_value(f'返回值:[{json.loads(self.result.text)}]')
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, str(self.jsonres), row_pos, col_pos_v)
+                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel(sheet, str(self.jsonres), row_pos, col_pos_v)
         except Exception as e:
             logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
             logger.error(e)
-            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-            write_to_excel3(sheet, str(self.result.text), row_pos, col_pos_v)
+            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel(sheet, str(self.result.text), row_pos, col_pos_v)
         finally:
             self.param = {}
         return self.jsonres
@@ -448,36 +448,16 @@ class Http():
                 self.result = self.session.post(new_url, params=_data, proxies=None)
                 self.jsonres = json.loads(self.result.text)
                 self.return_value(f'返回值:[{json.loads(self.result.text)}]')
-                write_to_excel3(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel3(sheet, str(self.jsonres), row_pos, col_pos_v)
+                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
+                write_to_excel(sheet, str(self.jsonres), row_pos, col_pos_v)
         except Exception as e:
             logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
             logger.error(e)
-            write_to_excel3(sheet, 'FAIL', row_pos, col_pos_c)
-            write_to_excel3(sheet, str(self.result.text), row_pos, col_pos_v)
+            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
+            write_to_excel(sheet, str(self.result.text), row_pos, col_pos_v)
         finally:
             self.param = {}
         return self.jsonres
 
 if __name__ == '__main__':
     pass
-    # Http().seturl('aaaa')
-    Http('11').assertequalsAbs('0123,aa,xx', 'sheet', 'row_pos', 'col_pos_c', 'col_pos_v')
-    # a = getattr(Http, 'seturl')
-    # print(a)
-    # url = 'http://api.lemonban.com/futureloan/'
-    # obj = Http()
-    # a = getattr(obj, 'seturl')
-    # print(a(url))
-    # b = getattr(obj, 'post')
-    # print(b)
-    # print(b('member/register', '{"mobile_phone": "13800000618", "pwd": "1", "type": "1", "reg_name": "小可爱"}'))
-
-
-
-
-    apidata2 = [{'case2': [{'num': '1', 'exec': 'y'}]}, {'case3': [{'num': '2', 'exec': 'y'}]}]
-
-    d = apidata2[0].keys()
-    print(d)
-    print(list(d)[0])

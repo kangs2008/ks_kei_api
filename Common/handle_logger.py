@@ -2,12 +2,14 @@ import logging, os
 import logging.handlers
 from Common.setting import REPORT_DIR, LOG_DIR
 from Common.handle_config import ReadWriteConfFile
+
 get_logdir = ReadWriteConfFile().get_option('report_dir', 'report_dir_folder')
 num = ReadWriteConfFile().get_option('report_file', 'file_num')
 log_dir = os.path.join(REPORT_DIR, get_logdir)
 log_file_format = os.path.join(log_dir, f'{get_logdir}_{num}.log')
 
 log_file = os.path.join(LOG_DIR, 'Test.log')
+
 class HandleLogger:
     """
     定义一个日志处理类

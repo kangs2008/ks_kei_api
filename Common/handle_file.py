@@ -42,33 +42,33 @@ def file_copy_for_report(file_path, file_name, file_tmp, copy_to_path, rename=No
 
     tmpf = os.path.join(file_path, file_tmp)
     tmpf = tmpf.replace('\\', '/')
-    re_rule = '_report'
+    re_rule = 'report'
 
     if rename and rename == re_rule:
         path_list = file_name.split('.')
         if re_rule not in path_list[0]:
-            file_name = path_list[0] + re_rule + '.' + path_list[1]
+            file_name = path_list[0] + '_' + re_rule + '.' + path_list[1]
         tmpt = os.path.join(copy_to_path, file_name)
     elif rename and rename != re_rule:
         path_list = file_name.split('.')
         if re_rule not in path_list[0]:
-            file_name = path_list[0] + re_rule + '.' + path_list[1]
+            file_name = path_list[0] + '_' + re_rule + '.' + path_list[1]
         tmpt = os.path.join(copy_to_path, file_name)
     else:
         path_list = file_name.split('.')
         if re_rule not in path_list[0]:
-            file_name = path_list[0] + re_rule + '.' + path_list[1]
+            file_name = path_list[0] + '_' + re_rule + '.' + path_list[1]
         tmpt = os.path.join(copy_to_path, file_name)
         tmpt = tmpt.replace('\\', '/')
 
     if not os.path.exists(tmpt):
         shutil.copy(tmpf, tmpt)
         return file_name
-    elif os.path.exists(tmpt) and (rename is None or rename == ''):
-        shutil.copy(tmpf, tmpt)
-        return file_name
-    else:
-        pass
+    # elif os.path.exists(tmpt) and (rename is None or rename == ''):
+    #     shutil.copy(tmpf, tmpt)
+    #     return file_name
+    # else:
+    #     pass
 
     num = 1
     if re.findall('\((\d+)\)', file_name):
@@ -82,7 +82,7 @@ def file_copy_for_report(file_path, file_name, file_tmp, copy_to_path, rename=No
         if re_rule in path_list[0]:
             file_name = path_list[0] + f'({num}).' + path_list[1]
         else:
-            file_name = path_list[0] + re_rule + f'({num}).' + path_list[1]
+            file_name = path_list[0] + '_' + re_rule + f'({num}).' + path_list[1]
     else:
         file_name = path_list[0] + f'.' + path_list[1]
 

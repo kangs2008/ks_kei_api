@@ -29,7 +29,7 @@ class Http():
 
 
     def __get_relations(self, param):
-        pattern = r'[$][{][.*?][}]'
+        pattern = r'[$][{](.*?)[}]'
         if param is None or param == '':
             return None
         else:
@@ -37,8 +37,9 @@ class Http():
                 res = re.findall(pattern, param)
                 if res:
                     for r in res:
-                        param = param.replace('${' + key + '}', str(self.relations[key]))
-                        logger.info(f"----------数据预处理after:--self.relations[key]>>{self.relations[key]}--")
+                        if r == key:
+                            param = param.replace('${' + key + '}', str(self.relations[key]))
+                            logger.info(f"----------数据预处理after:--self.relations[{key}]>>{self.relations[key]}--")
             return param
     def __get_data(self, param):
         if (param is None) or param == '':
@@ -363,10 +364,13 @@ class Http():
         if url_path.startswith('http'):
             new_url = url_path
         else:
-            if str(self.url)[-1:] == '/':
-                new_url = self.url + url_path
+            if url_path == '' or url_path is None:
+                new_url = url_path
             else:
-                new_url = self.url + '/' + url_path
+                if str(self.url)[-1:] == '/':
+                    new_url = self.url + url_path
+                else:
+                    new_url = self.url + '/' + url_path
         # 转为字典
         try:
             with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):
@@ -398,10 +402,13 @@ class Http():
         if url_path.startswith('http'):
             new_url = url_path
         else:
-            if str(self.url)[-1:] == '/':
-                new_url = self.url + url_path
+            if url_path == '' or url_path is None:
+                new_url = url_path
             else:
-                new_url = self.url + '/' + url_path
+                if str(self.url)[-1:] == '/':
+                    new_url = self.url + url_path
+                else:
+                    new_url = self.url + '/' + url_path
         # 转为字典
         try:
             with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):
@@ -432,10 +439,13 @@ class Http():
         if url_path.startswith('http'):
             new_url = url_path
         else:
-            if str(self.url)[-1:] == '/':
-                new_url = self.url + url_path
+            if url_path == '' or url_path is None:
+                new_url = url_path
             else:
-                new_url = self.url + '/' + url_path
+                if str(self.url)[-1:] == '/':
+                    new_url = self.url + url_path
+                else:
+                    new_url = self.url + '/' + url_path
         # 转为字典
         try:
             with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):

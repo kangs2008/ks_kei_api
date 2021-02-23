@@ -5,7 +5,7 @@ import time
 
 from Common.handle_config import ReadWriteConfFile
 from Common.utils import start_time_format, use_time, report_date_folder
-from Common.handle_file import file_del, file_zip_path, file_copy_for_report, file_and_folder_copy_report
+from Common.handle_file import file_del, file_zip_path, file_copy, file_and_folder_copy
 from Common.setting import BASE_DIR, REPORT_DIR
 
 def set_exec_usefile(file, folder, sheet):
@@ -66,9 +66,9 @@ def main(file, folder, sheet, report):
             os.mkdir(mk_report_dir)
 
     if st:
-        new_report_excel_name = file_copy_for_report(datas_path, 'test_apidata.xlsx', f'test_apidata.xlsx', f'{mk_report_dir}', 're_name')
+        new_report_excel_name = file_copy(datas_path, 'test_apidata.xlsx', f'test_apidata.xlsx', f'{mk_report_dir}', 're_name')
     else:
-        new_report_excel_name = file_and_folder_copy_report(datas_path, f'{mk_report_dir}', ['test_'], 're_name')
+        new_report_excel_name = file_and_folder_copy(datas_path, f'{mk_report_dir}', ['test_'], 're_name')
     set_exec_ini('report_file', 'report_file_name', new_report_excel_name)
     num = html_num(new_report_excel_name)
     set_exec_ini('report_file', 'file_num', num)

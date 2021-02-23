@@ -5,7 +5,7 @@ from Common.handle_logger import logger
 from Apikeywords.apiKeyWords import Http
 from Common.handle_excel import excel_to_case, load_excel, excel_to_save, Handle_excel
 from Common.handle_config import ReadWriteConfFile
-from Common.setting import REPORT_DIR
+from Common.setting import REPORT_DIR, BASE_DIR
 
 execfile = ReadWriteConfFile().get_option('exec', 'exec_file_path')
 execfolder = ReadWriteConfFile().get_option('exec', 'exec_current_folder')
@@ -80,12 +80,22 @@ class TestAPI():
             numstr = ''
         else:
             numstr = f'(' + num + ')'
+        p = self._re_file_path(self, file_path)
         write_file_name = os.path.splitext(file_name)[0] + '_report' + numstr + os.path.splitext(file_name)[1]
         new_path = file_path.replace(file_path, tmp_excel_path)
+
+        if p:
+            new_path = new_path + p
+
         write_file_path = os.path.join(new_path, write_file_name)
 
         wb, sheet = load_excel(write_file_path, sheet_name)
         return wb, sheet, write_file_path
+    def _re_file_path(self, file_path):
+        datas_path = os.path.join(BASE_DIR, "Datas")
+        new_report_path = file_path.replace(datas_path, '')
+        p, f = os.path.split(new_report_path)
+        return p
 
     def save_excel_teardown(self, wb, file_path):
         excel_to_save(wb, file_path)

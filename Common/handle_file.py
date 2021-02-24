@@ -38,56 +38,6 @@ def file_copy(file_path, file_name, file_tmp, copy_to_path, rename=None):
 
     return file_copy(file_path, file_name, file_tmp, copy_to_path)
 
-def file_copy_for_report(file_path, file_name, file_tmp, copy_to_path, rename=None):
-
-    tmpf = os.path.join(file_path, file_tmp)
-    tmpf = tmpf.replace('\\', '/')
-    re_rule = 'report'
-
-    if rename and rename == re_rule:
-        path_list = file_name.split('.')
-        if re_rule not in path_list[0]:
-            file_name = path_list[0] + '_' + re_rule + '.' + path_list[1]
-        tmpt = os.path.join(copy_to_path, file_name)
-    elif rename and rename != re_rule:
-        path_list = file_name.split('.')
-        if re_rule not in path_list[0]:
-            file_name = path_list[0] + '_' + re_rule + '.' + path_list[1]
-        tmpt = os.path.join(copy_to_path, file_name)
-    else:
-        path_list = file_name.split('.')
-        if re_rule not in path_list[0]:
-            file_name = path_list[0] + '_' + re_rule + '.' + path_list[1]
-        tmpt = os.path.join(copy_to_path, file_name)
-        tmpt = tmpt.replace('\\', '/')
-
-    if not os.path.exists(tmpt):
-        shutil.copy(tmpf, tmpt)
-        return file_name
-    # elif os.path.exists(tmpt) and (rename is None or rename == ''):
-    #     shutil.copy(tmpf, tmpt)
-    #     return file_name
-    # else:
-    #     pass
-
-    num = 1
-    if re.findall('\((\d+)\)', file_name):
-        num = re.findall('\((\d+)\)', file_name)
-        new_num = int(num[0]) + 1
-        file_name = file_name.replace(num[0], str(new_num))
-        return file_copy_for_report(file_path, file_name, file_tmp, copy_to_path)
-    path_list = file_name.split('.')
-
-    if rename and rename == re_rule:
-        if re_rule in path_list[0]:
-            file_name = path_list[0] + f'({num}).' + path_list[1]
-        else:
-            file_name = path_list[0] + '_' + re_rule + f'({num}).' + path_list[1]
-    else:
-        file_name = path_list[0] + f'.' + path_list[1]
-
-    return file_copy_for_report(file_path, file_name, file_tmp, copy_to_path)
-
 
 def file_unzip(file_name: str, dir_name):
     try:
@@ -120,19 +70,7 @@ def file_del(filepath):
         elif os.path.isdir(file_path):
             shutil.rmtree(file_path)
 
-def _dfs_zip_file(input_path, result, ignore=[]):
-    files = os.listdir(input_path)
 
-    for file in files:
-        filepath = os.path.join(input_path, file)
-
-        if os.path.isdir(filepath):
-            _dfs_zip_file(filepath, result, ignore)
-        else:
-            if ignore != []:
-                if str(ignore[0]) not in file:
-                    continue
-            result.append(filepath)
 
 def file_zip_path(input_path, output_path, ignore=[]):
     outdir = os.path.dirname(output_path)
@@ -141,22 +79,57 @@ def file_zip_path(input_path, output_path, ignore=[]):
 
     f = zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED)
 
-    filelists = []
-    _dfs_zip_file(input_path, filelists, ignore)
+    filepathlists = []
+    filenamelists = []
+    _dfs_zip_file(input_path, filepathlists, filenamelists, ignore)
 
-    for file in filelists:
+    for file in filepathlists:
         file = file.replace('\\', '/')
         input_path = input_path.replace('\\', '/')
         f.write(file, file.replace(input_path, ''))
     f.close()
     return output_path
 
-def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
+def _dfs_zip_file(input_path, resultpath, resultfile, ignore=[]):
+    files = os.listdir(input_path)
 
-    filelists = []
-    _dfs_zip_file(input_path, filelists, ignore)
+    for file in files:
+        filepath = os.path.join(input_path, file)
+
+        if os.path.isdir(filepath):
+            _dfs_zip_file(filepath, resultpath, resultfile, ignore)
+        else:
+            count = 0
+            for one in ignore:
+                if one in file:
+                    count += 1
+            if count == len(ignore):
+                resultpath.append(filepath)
+                resultfile.append(file)
+
+def _dfs_current_folder(input_path, resultpath, resultfile, ignore=[]):
+    files = os.listdir(input_path)
+
+    for file in files:
+        filepath = os.path.join(input_path, file)
+        if os.path.isdir(filepath):
+            continue
+        else:
+            count = 0
+            for one in ignore:
+                if one in file:
+                    count += 1
+            if count == len(ignore):
+                resultpath.append(filepath)
+                resultfile.append(file)
+
+def current_folder_file_copy(input_path, copy_to_path, ignore=[], rename=None):
+
+    filepathlists = []
+    filenamelists = []
+    _dfs_current_folder(input_path, filepathlists, filenamelists, ignore)
     s = ''
-    for file in filelists:
+    for file in filepathlists:
         dirs_f = os.path.dirname(file)
         dirs_t = dirs_f.replace(input_path, copy_to_path)
         os.makedirs(dirs_t, exist_ok=True)
@@ -170,24 +143,26 @@ def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
             s = s + ',' + f
     return s
 
-def file_and_folder_copy_report(input_path, copy_to_path, ignore=[], rename=None):
+def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
 
-    filelists = []
-    _dfs_zip_file(input_path, filelists, ignore)
+    filepathlists = []
+    filenamelists = []
+    _dfs_zip_file(input_path, filepathlists, filenamelists, ignore)
     s = ''
-    for file in filelists:
+    for file in filepathlists:
         dirs_f = os.path.dirname(file)
         dirs_t = dirs_f.replace(input_path, copy_to_path)
         os.makedirs(dirs_t, exist_ok=True)
 
         name = ntpath.basename(file)
         name_tmp = ntpath.basename(file)
-        f = file_copy_for_report(dirs_f, name, name_tmp, dirs_t, rename)
+        f = file_copy(dirs_f, name, name_tmp, dirs_t, rename)
         if s == '':
             s = s + f
         else:
             s = s + ',' + f
     return s
+
 
 if __name__ == '__main__':
     pass

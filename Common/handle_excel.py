@@ -160,10 +160,10 @@ def write_to_excel(sheet, set_value, row_pos, col_pos):
     # 字体格式，颜色和大小
     sheet.cell(int(row_pos) + 1, int(col_pos[0]) + 1).value = set_value
     if set_value == 'FAIL':
-        font_s = Font(bold=True, color="FF0000")
+        font_s = Font(bold=False, color="FF0000", size=10)
         sheet.cell(int(row_pos) + 1, int(col_pos[0]) + 1).font = font_s
     elif set_value == 'PASS':
-        font_s = Font(bold=True, color="00FF00")
+        font_s = Font(bold=False, color="00FF00", size=10)
         sheet.cell(int(row_pos) + 1, int(col_pos[0]) + 1).font = font_s
     else:
         pass
@@ -207,7 +207,7 @@ def excel_to_case(file_name, no_current_folder=None, sheet_name=None):
             file_name = file_name.replace('\\', '/')
             filePathList = [file_name]
     else:
-        if no_current_folder:
+        if no_current_folder == '3':
             filePathList, fileNameList = get_file_all_dir(file_name)
         else:
             filePathList, fileNameList = get_file_current_dir(file_name)

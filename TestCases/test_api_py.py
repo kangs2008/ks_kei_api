@@ -1,21 +1,34 @@
 import pytest
 import allure
-import sys, os
+import sys, os, re
 from Common.handle_logger import logger
 from Apikeywords.apiKeyWords import Http
 from Common.handle_excel import excel_to_case, load_excel, excel_to_save, Handle_excel
 from Common.handle_config import ReadWriteConfFile
-from Common.setting import REPORT_DIR, DATAS_DIR
+from Common.setting import REPORT_DIR, DATAS_DIR, BASE_DIR
+from Common.handle_file import file_copy
 
-
-execsheet = ReadWriteConfFile().get_option('exec', 'exec_sheet_name')
+execst = ReadWriteConfFile().get_option('exec', 'st')
 report_excel = ReadWriteConfFile().get_option('report_dir', 'report_dir_folder')
 tmp_excel_path = os.path.join(REPORT_DIR, report_excel)
-# report_excel_name = ReadWriteConfFile().get_option('report_file', 'report_file_name')
 num = ReadWriteConfFile().get_option('report_file', 'file_num')
 
-execfile = os.path.join(DATAS_DIR, 'test_apidata.xlsx')
+file_name = 'test_apidata.xlsx'
+datas_path = os.path.join(BASE_DIR, "Datas") # 自定义
+execfile = os.path.join(DATAS_DIR, file_name)
 sheet_name = 't_接口py'
+report_py = ReadWriteConfFile().get_option('report_dir', 'py_report_dir_folder')
+new_report_excel_name = file_copy(datas_path, file_name, file_name, f'{report_py}', 're_name')
+
+ReadWriteConfFile().add_section('report_file')
+ReadWriteConfFile().set_option('report_file', 'report_file_name', new_report_excel_name)
+
+pre = os.path.splitext(new_report_excel_name)[0]
+pattern = re.findall('[(](.*?)[)]', pre)
+num = ''
+if pattern:
+    num = str(pattern[0])
+ReadWriteConfFile().set_option('report_file', 'file_num', num)
 
 apidata = excel_to_case(execfile, '', sheet_name)
 apidata_length = len(apidata)
@@ -34,7 +47,7 @@ elif execfile == '' and apidata_length == 1:
     test_file_path = apidata[0]['filepath']
 else:
     for data_ in apidata:
-        if data_['sheetname'] == execsheet:
+        if data_['sheetname'] == sheet_name:
             test_data = data_['filesheet']
             test_sheet_name = data_['sheetname']
             test_file_name = data_['file']

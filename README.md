@@ -60,3 +60,4 @@
 
 ## 截图
 ![excel report](./Sn.png "Sn.png")
+![allure report](./Sn2.png "Sn2.png")

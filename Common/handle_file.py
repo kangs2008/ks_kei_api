@@ -38,7 +38,6 @@ def file_copy(file_path, file_name, file_tmp, copy_to_path, rename=None):
 
     return file_copy(file_path, file_name, file_tmp, copy_to_path)
 
-
 def file_unzip(file_name: str, dir_name):
     try:
         name = ntpath.basename(file_name)
@@ -69,8 +68,6 @@ def file_del(filepath):
             os.remove(file_path)
         elif os.path.isdir(file_path):
             shutil.rmtree(file_path)
-
-
 
 def file_zip_path(input_path, output_path, ignore=[]):
     outdir = os.path.dirname(output_path)
@@ -163,10 +160,5 @@ def file_and_folder_copy(input_path, copy_to_path, ignore=[], rename=None):
             s = s + ',' + f
     return s
 
-
 if __name__ == '__main__':
     pass
-    # file_path = r'C:\Users\kangs\Desktop\yoyo\1'
-    # file_name = r'新建 DOC 文档.doc'
-    # copy_to_path = r'C:\Users\kangs\Desktop\yoyo\2'
-    # file_and_folder_copy(file_path, copy_to_path, ignore=['t_'], rename='1')

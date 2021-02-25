@@ -56,9 +56,6 @@ def main(file, sheet, report):
 
     # pytest.main(['-sv', './TestCases/Login/test_login.py', '--alluredir', './temp']) # web test
 
-
-
-
     pytest.main(['-sv', './TestCases/test_api.py', '--alluredir', './temp']) # api test
     os.system(f'allure generate ./temp -o ./Report/{report_dir_format}/allure/ --clean')
 

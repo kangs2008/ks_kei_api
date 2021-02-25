@@ -21,7 +21,6 @@ class HandleLogger:
 
         sizefilehandler = logging.handlers.RotatingFileHandler(log_file, mode='a', maxBytes=1024*1024*5, backupCount=10,
                                                                encoding='utf-8', delay=False)
-
         console_handle = logging.StreamHandler()  # 定义一个控制台输出渠道
         file_handle2 = logging.FileHandler(log_file, encoding='utf-8')  # 定义一个文件输出渠道
         file_handle = logging.FileHandler(log_file_format, encoding='utf-8')
@@ -45,7 +44,6 @@ class HandleLogger:
 
     def get_case_logger(self):  # 获取日志收集器
         return self.case_logger
-
 
 do_case = HandleLogger()  # 创建一个日志对象
 logger = do_case.get_case_logger()  # 创建一个日志器方法

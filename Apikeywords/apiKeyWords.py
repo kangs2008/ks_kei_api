@@ -15,19 +15,6 @@ class Http():
         self.relations = {}
         self.param = {}
 
-
-        self.h1 = {"X-Lemonban-Media-Type": "lemonban.v2"}
-        self.h2 = {"Content-Type": "application/json"}
-
-    def __hander_henders(token=None):
-        headers = {"X-Lemonban-Media-Type": "lemonban.v2",
-                   "Content-Type": "application/json"}
-        if token:
-            headers["Authorization"] = "Bearer {}".format(token)
-        return headers
-
-
-
     def __get_relations(self, param):
         pattern = r'[$][{](.*?)[}]'
         if param is None or param == '':
@@ -45,16 +32,6 @@ class Http():
         if (param is None) or param == '':
             return None
         else:
-            # p = {}
-            # params = param.split('&')
-            # for s in params:
-            #     if s == '':
-            #         pass
-            #     else:
-            #         key = s[:s.find('=')]
-            #         value = s[s.find('=') + 1 :]
-            #         p[key] = value
-            # return p
             param = param.replace('\'', '"').replace('\n', '').replace('\r', '').replace('\t', '')
             paramn = self.__get_relations(param)
             paramn = json.loads(paramn)
@@ -66,8 +43,6 @@ class Http():
         if str_fail == 'FAIL':
             with allure.step(f"对比结果：{str_fail}"):
                 pass
-
-
 
     def assertJsonpath(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
@@ -100,58 +75,14 @@ class Http():
         write_to_excel(sheet, str(res), row_pos, col_pos_v)
         return str_result
 
-    # def assertInText(self, data, sheet, row_pos, col_pos_c, col_pos_v):
-    #     logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
-    #     # dataL = str(data['input']).split(',')
-    #     # d1 = str(dataL[0]).strip()
-    #     # d2 = str(dataL[1]).strip()
-    #     expect_value = str(data['request_data']).strip()
-    #     d_k = str(data['input']).strip()
-    #     pattern = f'"{d_k}": "{expect_value}"'
-    #
-    #     # if len(dataL) > 2:
-    #     #     print('------------------Input data was wrong. Please check it.')
-    #     result_to_json = json.dumps(self.jsonres)
-    #     with allure.step(
-    #             f"[{mTime()}]['assertInText'][key:{d_k},actual_value:{result_to_json}][expect_value:{expect_value}]"):
-    #         logger.info(f"key:{d_k}")
-    #         logger.info(f"ACTUAL_VALUE:[{result_to_json}]")
-    #         logger.info(f"EXPECT_VALUE:[{pattern}]")
-    #
-    #         try:
-    #             # json - --- dict json.loads(json_string) 接收的是一个json 字符串
-    #             # dict - ---- json json.dumps(dict)接收的是一个字典 dict
-    #             # print(result_to_json)  # 先转json
-    #             # 方法2 直接判断包含
-    #             assert pattern in result_to_json
-    #         except AssertionError as e:
-    #             self.return_value('FAIL')
-    #             logger.info('--Fail--用例失败--')
-    #             logger.exception(e)
-    #             # raise
-    #             str_result = 'FAIL'
-    #             # return str_fail
-    #         else:
-    #             self.return_value('PASS')
-    #             logger.info('--Pass--用例成功--')
-    #             str_result = 'PASS'
-    #     self.__allurestep(str_result)
-    #     write_to_excel3(sheet, str_result, row_pos, col_pos_c)
-    #     write_to_excel3(sheet, self.jsonres, row_pos, col_pos_v)
-    #     return str_result
-
     def assertInRe(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:{sys._getframe().f_code.co_name}")
         expect_value = str(apidata['request_data']).strip()
         d_k = str(apidata['input']).strip()
         pattern = f'"{d_k}": "(.+?)"'
 
-        # json - --- dict json.loads(json_string) 接收的是一个json 字符串
-        # dict - ---- json json.dumps(dict)接收的是一个字典 dict
-        # 断言data中包含"name": "yoyo"
         result_to_json = json.dumps(self.jsonres)
-        # print(result_to_json)  # 先转json
-        # 方法1 正则取值
+
         res = re.findall(pattern, result_to_json)  # 正则从json中取值
         with allure.step(
                 f"[{mTime()}]['assertInRe'][key:{d_k},actual_value:{res}][expect_value:{expect_value}]"):
@@ -160,8 +91,6 @@ class Http():
             logger.info(f"EXPECT_VALUE:[{expect_value}]")
             try:
                 assert expect_value in res
-                # 方法2 直接判断包含
-                # assert '"name": "yoyo"' in result_to_json
             except AssertionError as e:
                 self.return_value('FAIL')
                 logger.info('--Fail--用例失败--')
@@ -203,7 +132,6 @@ class Http():
                 logger.exception(e)
                 # raise
                 str_result = 'FAIL'
-                # return str_fail
             else:
                 self.return_value('PASS')
                 logger.info('--Pass--用例成功--')
@@ -244,8 +172,6 @@ class Http():
                 request_data_value = self.__get_data(_data)
             else:
                 request_data_value = self.__get_relations(_data) # ???
-                # request_data_path = self.__abs(_data)
-                # request_data_value = eval(str(self.jsonres) + request_data_path)
             with allure.step(f"[{mTime()}]['saveparam'][saveparam_key:{input_path}][saveparam_value:{request_data_value}]"):
                 logger.info(f"saveparam_key:[{input_path}]")
                 logger.info(f"saveparam_value:[{request_data_value}]")
@@ -321,7 +247,6 @@ class Http():
                 logger.info(f"headers_value_after(__get_relations):[{rel}]")
 
                 self.session.headers[apidata['input'].strip()] = rel
-                # self.return_value(rel)
                 write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
                 write_to_excel(sheet, str(rel), row_pos, col_pos_v)
                 return self.session.headers
@@ -349,29 +274,25 @@ class Http():
             logger.error(e)
             pass
 
-
     def return_value(self, value):
         with allure.step(f"值是：{value}"):
             logger.info(f"值是：{value}")
 
-
     def post(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:【'post'】")
 
-        new_url = ''
         url_path = str(apidata['input']).strip()
         _data = apidata['request_data'].strip()
         if url_path.startswith('http'):
             new_url = url_path
         else:
             if url_path == '' or url_path is None:
-                new_url = url_path
+                new_url = self.url
             else:
                 if str(self.url)[-1:] == '/':
                     new_url = self.url + url_path
                 else:
                     new_url = self.url + '/' + url_path
-        # 转为字典
         try:
             with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):
                 new_url = self.__get_relations(new_url)
@@ -397,65 +318,26 @@ class Http():
     def get(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
         logger.info(f"执行函数:【'get'】")
 
-        new_url = ''
         url_path = str(apidata['input']).strip()
         if url_path.startswith('http'):
             new_url = url_path
         else:
             if url_path == '' or url_path is None:
-                new_url = url_path
+                new_url = self.url
             else:
                 if str(self.url)[-1:] == '/':
                     new_url = self.url + url_path
                 else:
                     new_url = self.url + '/' + url_path
-        # 转为字典
         try:
-            with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):
+            with allure.step(fr"[{mTime()}]['GET'][get_after:{self.result}]"):
                 new_url = self.__get_relations(new_url)
                 self.return_value(f'请求接口:[{new_url}]')
                 self.return_value(f'请求头:[{self.session.headers}]')
                 _data = self.param
 
                 self.return_value(f'请求体:[{_data}]')
-                self.result = self.session.post(new_url, params=_data, proxies=None)
-                self.jsonres = json.loads(self.result.text)
-                self.return_value(f'返回值:[{json.loads(self.result.text)}]')
-                write_to_excel(sheet, 'PASS', row_pos, col_pos_c)
-                write_to_excel(sheet, str(self.jsonres), row_pos, col_pos_v)
-        except Exception as e:
-            logger.error(f"Execute method '{sys._getframe().f_code.co_name}' error.")
-            logger.error(e)
-            write_to_excel(sheet, 'FAIL', row_pos, col_pos_c)
-            write_to_excel(sheet, str(self.result.text), row_pos, col_pos_v)
-        finally:
-            self.param = {}
-        return self.jsonres
-    def py_get(self, apidata, sheet, row_pos, col_pos_c, col_pos_v):
-        logger.info(f"执行函数:【'get'】")
-
-        url_path = str(apidata['input']).strip()
-        _data = apidata['request_data'].strip()
-        if url_path.startswith('http'):
-            new_url = url_path
-        else:
-            if url_path == '' or url_path is None:
-                new_url = url_path
-            else:
-                if str(self.url)[-1:] == '/':
-                    new_url = self.url + url_path
-                else:
-                    new_url = self.url + '/' + url_path
-        # 转为字典
-        try:
-            with allure.step(fr"[{mTime()}]['POST'][post_after:{self.result}]"):
-                new_url = self.__get_relations(new_url)
-                self.return_value(f'请求接口:[{new_url}]')
-                self.return_value(f'请求头:[{self.session.headers}]')
-                _data = self.param
-
-                self.return_value(f'请求体:[{_data}]')
-                self.result = self.session.post(new_url, params=_data, proxies=None)
+                self.result = self.session.get(new_url, params=_data, proxies=None)
                 self.jsonres = json.loads(self.result.text)
                 self.return_value(f'返回值:[{json.loads(self.result.text)}]')
                 write_to_excel(sheet, 'PASS', row_pos, col_pos_c)

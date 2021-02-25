@@ -183,7 +183,6 @@ def get_file_all_dir(file_dir):
                 L_name.append(file)
     return L, L_name
 
-
 def get_file_current_dir(path):
     L = []
     L_name = []
@@ -259,12 +258,3 @@ def excel_to_case(file_name, no_current_folder=None, sheet_name=None):
 
 if __name__ == '__main__':
     pass
-    # path = r'D:\desk20201127\ks\Datas'
-    # file = r'D:\desk20201127\ks\Report\2020-12-09_21-08-17\test_apidata_report.xlsx'
-    # sheet_name = 't_接'
-    # sheet = Handle_excel(r'D:\desk20201127\ks\Datas\test_apidata.xlsx').get_sheet_by_name('t_接')
-    # path = r'D:\desk20201127\ks\Datas\test_apidata.xlsx'
-    # sh2 = Handle_excel(path).get_sheet_by_name('config')
-    # dictkv = Handle_excel(path).getExecKVofSheet(sh2, 'exec', 'y')
-    # kv = [dictkv]
-    # print(Handle_excel(path).getExecValuesOfSheet(sheet, 'exec', 'y', kv))

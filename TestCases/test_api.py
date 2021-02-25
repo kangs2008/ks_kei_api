@@ -16,7 +16,7 @@ tmp_excel_path = os.path.join(REPORT_DIR, report_excel)
 num = ReadWriteConfFile().get_option('report_file', 'file_num')
 
 apidata = excel_to_case(execfile, execst, execsheet)
-print(':::::', apidata)
+
 class TestAPI():
 
     @pytest.mark.parametrize('data', apidata)

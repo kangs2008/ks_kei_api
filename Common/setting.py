@@ -26,3 +26,5 @@ PIC_DIR = os.path.join(REPORT_DIR, 'PIC')
 
 # 获取TestCases目录路径
 CASES_DIR = os.path.join(BASE_DIR, 'TestCases')
+
+REPORT_CURRENT_DIR = os.path.join(BASE_DIR, 'Report_allure')

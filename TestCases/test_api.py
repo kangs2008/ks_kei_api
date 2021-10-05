@@ -5,7 +5,7 @@ from Common.handle_logger import logger
 from Apikeywords.apiKeyWords import Http
 from Common.handle_excel import excel_to_case, load_excel, excel_to_save, Handle_excel
 from Common.handle_config import ReadWriteConfFile
-from Common.setting import REPORT_DIR, BASE_DIR
+from Common.setting import REPORT_DIR, BASE_DIR, CASES_DIR
 
 execfile = ReadWriteConfFile().get_option('exec', 'exec_file_path')
 execst = ReadWriteConfFile().get_option('exec', 'st')
@@ -15,6 +15,7 @@ report_excel = ReadWriteConfFile().get_option('report_dir', 'report_dir_folder')
 tmp_excel_path = os.path.join(REPORT_DIR, report_excel)
 num = ReadWriteConfFile().get_option('report_file', 'file_num')
 
+execfile = os.path.dirname(__file__)
 apidata = excel_to_case(execfile, execst, execsheet)
 
 class TestAPI():
@@ -24,10 +25,10 @@ class TestAPI():
 
         http = Http(requests_session)
 
-        allure.dynamic.feature(f'API_interface_test')
+        allure.dynamic.feature(f'{self.__class__.__name__}.{sys.__loader__.__name__}')
         allure.dynamic.story(f'{list(data.values())[1]}<>{list(data.values())[0]}')
         allure.dynamic.description(f'FILE SHEET： {list(data.values())[0]}  \n\nFILE NAME： {list(data.values())[1]}  \n\nFILE PATH： {list(data.values())[2]}')
-        logger.info(f'API_interface_test')
+        logger.info(f'{self.__class__.__name__}.{sys.__loader__.__name__}')
         logger.info(f'FILE SHEET： {list(data.values())[0]}  FILE NAME： {list(data.values())[1]}  FILE PATH： {list(data.values())[2]}')
         logger.info(list(data.values())[2])
         wb, sheet, write_path = self.load_excel_setup(list(data.values())[0], list(data.values())[1], list(data.values())[2])
@@ -83,25 +84,18 @@ class TestAPI():
         p = self._re_file_path(file_path)
         write_file_name = os.path.splitext(file_name)[0] + '_report' + numstr + os.path.splitext(file_name)[1]
         new_path = file_path.replace(file_path, tmp_excel_path)
-
-        if p:
-            new_path = new_path + p
-
+        # if p:
+        #     new_path = new_path + p
         write_file_path = os.path.join(new_path, write_file_name)
-        logger.info(f'aaaaaaaa{write_file_path}')
         wb, sheet = load_excel(write_file_path, sheet_name)
         return wb, sheet, write_file_path
     def _re_file_path(self, file_path):
-        datas_path = os.path.join(BASE_DIR, "Datas")
-        logger.info(file_path)
-        logger.info(datas_path)
-        logger.info('datas_path')
         if sys.platform == 'win32':
-            new_report_path = file_path.replace(datas_path.replace('\\', '/'), '')
-            # p, f = os.path.split(new_report_path.replace('/', '\\'))
+            logger.info(file_path.replace(CASES_DIR.replace('\\', '/'), ''))
+            new_report_path = file_path.replace(CASES_DIR.replace('\\', '/'), '')
             p, f = os.path.split(new_report_path)
         else:
-            new_report_path = file_path.replace(datas_path, '')
+            new_report_path = file_path.replace(CASES_DIR, '')
             p, f = os.path.split(new_report_path)
         return p
 

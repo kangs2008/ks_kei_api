@@ -1,0 +1,147 @@
+INFO     LOG:conftest.py:51 bbbbbb2021-10-05
+INFO     LOG:conftest.py:57 -----mk_report_dir--：D:\desk20201127\ksgit\Report\2021-10-05_allure
+INFO     LOG:conftest.py:79 ----------传入参数<--file>,测试excel：D:/desk20201127/ksgit/TestCases/
+INFO     LOG:conftest.py:80 ----------传入参数<--sheet>,测试excel sheet name：
+INFO     LOG:conftest.py:81 ----------传入参数<--report>,指定测试报告文件夹：2021-10-05_allure
+INFO     LOG:conftest.py:83 测试报告文件夹：D:\desk20201127\ksgit\Report\2021-10-05_allure
+INFO     LOG:conftest.py:145 ****************************************************************************************************
+INFO     LOG:conftest.py:146 ********************测试执行开始********************
+INFO     LOG:conftest.py:149 ----------requests_session setup----------
+INFO     LOG:conftest.py:150 获取session：<requests.sessions.Session object at 0x0000026362E29E48>
+INFO     LOG:test_api.py:31 TestAPI.BuiltinImporter
+INFO     LOG:test_api.py:32 FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:33 D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:98 D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:99 D:\desk20201127\ksgit\TestCases
+INFO     LOG:test_api.py:100 datas_path
+INFO     LOG:test_api.py:102 a
+INFO     LOG:test_api.py:103 D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:104 b
+INFO     LOG:test_api.py:105 /test_apidata.xlsx
+INFO     LOG:test_api.py:106 c
+INFO     LOG:test_api.py:110 ctest_apidata.xlsx
+INFO     LOG:test_api.py:87 pppp- D:\desk20201127\ksgit\Report\2021-10-05_allure
+INFO     LOG:test_api.py:90 zzzzzzzz- D:\desk20201127\ksgit\Report\2021-10-05_allure      -test_apidata_report.xlsx
+INFO     LOG:test_api.py:93 zzz-->>D:\desk20201127\ksgit\Report\2021-10-05_allure\test_apidata_report.xlsx
+INFO     LOG:test_api.py:39 Execute test suite: TestAPI
+INFO     LOG:test_api.py:40 Execute test case: t_接
+INFO     LOG:test_api.py:60 Test title：充1
+INFO     LOG:test_api.py:77 Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+INFO     LOG:apiKeyWords.py:259 执行函数:seturl
+INFO     LOG:apiKeyWords.py:262 输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+INFO     LOG:apiKeyWords.py:279 值是：http://testingedu.com.cn:8081/inter/HTTP
+INFO     LOG:test_api.py:51 Function return value：None
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+INFO     LOG:apiKeyWords.py:282 执行函数:【'post'】
+INFO     LOG:apiKeyWords.py:279 值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+INFO     LOG:apiKeyWords.py:279 值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+INFO     LOG:apiKeyWords.py:279 值是：请求体:[None]
+INFO     LOG:apiKeyWords.py:279 值是：返回值:[{'status': 200, 'msg': 'success', 'token': '7a08d7d0565840caaee29ff56513b8e7'}]
+INFO     LOG:test_api.py:51 Function return value：{'status': 200, 'msg': 'success', 'token': '7a08d7d0565840caaee29ff56513b8e7'}
+INFO     LOG:test_api.py:60 Test title：充2
+INFO     LOG:test_api.py:77 Test datas:【title:[充2], method:[savejson], input:[token1], request_data:[token]】
+INFO     LOG:apiKeyWords.py:215 执行函数:savejson
+INFO     LOG:apiKeyWords.py:152 ----------数据预处理after:--__abs(datan)>>token>>['token']--
+INFO     LOG:apiKeyWords.py:222 relations_key:[token1]
+INFO     LOG:apiKeyWords.py:223 jsonres_key:[['token']]
+INFO     LOG:apiKeyWords.py:224 self.relations[token1] = self.jsonres['token']
+INFO     LOG:apiKeyWords.py:279 值是：7a08d7d0565840caaee29ff56513b8e7
+INFO     LOG:test_api.py:51 Function return value：{'token1': '7a08d7d0565840caaee29ff56513b8e7'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[addheader], input:[token], request_data:[${token1}]】
+INFO     LOG:apiKeyWords.py:241 执行函数:addheader
+INFO     LOG:apiKeyWords.py:244 headers_key:[token]
+INFO     LOG:apiKeyWords.py:245 headers_value_before:[${token1}]
+INFO     LOG:apiKeyWords.py:29 ----------数据预处理after:--self.relations[token1]>>7a08d7d0565840caaee29ff56513b8e7--
+INFO     LOG:apiKeyWords.py:247 headers_value_after(__get_relations):[7a08d7d0565840caaee29ff56513b8e7]
+INFO     LOG:test_api.py:51 Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '7a08d7d0565840caaee29ff56513b8e7'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[savedata], input:[password], request_data:[${pwd}]】
+INFO     LOG:apiKeyWords.py:192 执行函数:savedata
+INFO     LOG:apiKeyWords.py:198 relations_key:[password]
+INFO     LOG:apiKeyWords.py:199 relations_value:[${pwd}]
+INFO     LOG:apiKeyWords.py:200 self.relations[password] = ${pwd}
+INFO     LOG:test_api.py:51 Function return value：{'password': '${pwd}'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[savedata], input:[user1], request_data:[康]】
+INFO     LOG:apiKeyWords.py:192 执行函数:savedata
+INFO     LOG:apiKeyWords.py:198 relations_key:[user1]
+INFO     LOG:apiKeyWords.py:199 relations_value:[康]
+INFO     LOG:apiKeyWords.py:200 self.relations[user1] = 康
+INFO     LOG:apiKeyWords.py:279 值是：康
+INFO     LOG:test_api.py:51 Function return value：{'user1': '康'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[savedata], input:[user2], request_data:[是]】
+INFO     LOG:apiKeyWords.py:192 执行函数:savedata
+INFO     LOG:apiKeyWords.py:198 relations_key:[user2]
+INFO     LOG:apiKeyWords.py:199 relations_value:[是]
+INFO     LOG:apiKeyWords.py:200 self.relations[user2] = 是
+INFO     LOG:apiKeyWords.py:279 值是：是
+INFO     LOG:test_api.py:51 Function return value：{'user2': '是'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[saveparam], input:[token], request_data:[${token1}]】
+INFO     LOG:apiKeyWords.py:166 执行函数:saveparam
+INFO     LOG:apiKeyWords.py:29 ----------数据预处理after:--self.relations[token1]>>7a08d7d0565840caaee29ff56513b8e7--
+INFO     LOG:apiKeyWords.py:176 saveparam_key:[token]
+INFO     LOG:apiKeyWords.py:177 saveparam_value:[7a08d7d0565840caaee29ff56513b8e7]
+INFO     LOG:apiKeyWords.py:178 self.param[token] = 7a08d7d0565840caaee29ff56513b8e7
+INFO     LOG:apiKeyWords.py:279 值是：{'token': '7a08d7d0565840caaee29ff56513b8e7'}
+INFO     LOG:test_api.py:51 Function return value：{'token': '7a08d7d0565840caaee29ff56513b8e7'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[saveparam], input:[aaa], request_data:[啊]】
+INFO     LOG:apiKeyWords.py:166 执行函数:saveparam
+INFO     LOG:apiKeyWords.py:176 saveparam_key:[aaa]
+INFO     LOG:apiKeyWords.py:177 saveparam_value:[啊]
+INFO     LOG:apiKeyWords.py:178 self.param[aaa] = 啊
+INFO     LOG:apiKeyWords.py:279 值是：{'token': '7a08d7d0565840caaee29ff56513b8e7', 'aaa': '啊'}
+INFO     LOG:test_api.py:51 Function return value：{'aaa': '啊'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[saveparam], input:[user], request_data:[${user1}]】
+INFO     LOG:apiKeyWords.py:166 执行函数:saveparam
+INFO     LOG:apiKeyWords.py:29 ----------数据预处理after:--self.relations[user1]>>康--
+INFO     LOG:apiKeyWords.py:176 saveparam_key:[user]
+INFO     LOG:apiKeyWords.py:177 saveparam_value:[康]
+INFO     LOG:apiKeyWords.py:178 self.param[user] = 康
+INFO     LOG:apiKeyWords.py:279 值是：{'token': '7a08d7d0565840caaee29ff56513b8e7', 'aaa': '啊', 'user': '康'}
+INFO     LOG:test_api.py:51 Function return value：{'user': '康'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "", "nickname":"熊明"}]】
+INFO     LOG:apiKeyWords.py:282 执行函数:【'post'】
+INFO     LOG:apiKeyWords.py:279 值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+INFO     LOG:apiKeyWords.py:279 值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '7a08d7d0565840caaee29ff56513b8e7'}]
+INFO     LOG:apiKeyWords.py:38 ----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "", "nickname":"熊明"}--
+INFO     LOG:apiKeyWords.py:39 ----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '', 'nickname': '熊明'}--
+INFO     LOG:apiKeyWords.py:279 值是：请求体:[{'username': '', 'pwd': '', 'nickname': '熊明'}]
+INFO     LOG:apiKeyWords.py:279 值是：返回值:[{'status': 402, 'msg': '参数错误'}]
+INFO     LOG:test_api.py:51 Function return value：{'status': 402, 'msg': '参数错误'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[assertequals], input:[status], request_data:[200]】
+INFO     LOG:apiKeyWords.py:110 执行函数:assertequals
+INFO     LOG:apiKeyWords.py:152 ----------数据预处理after:--__abs(datan)>>status>>['status']--
+INFO     LOG:apiKeyWords.py:123 key:[status]
+INFO     LOG:apiKeyWords.py:124 ACTUAL_VALUE:[402]
+INFO     LOG:apiKeyWords.py:125 EXPECT_VALUE:[200]
+INFO     LOG:apiKeyWords.py:279 值是：FAIL
+INFO     LOG:apiKeyWords.py:131 --Fail--用例失败--
+ERROR    LOG:apiKeyWords.py:132 
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\Apikeywords\apiKeyWords.py", line 128, in assertequals
+    assert actual_value == expect_value
+AssertionError
+INFO     LOG:test_api.py:51 Function return value：FAIL
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": ${password}, "nickname":"熊明"}]】
+INFO     LOG:apiKeyWords.py:282 执行函数:【'post'】
+INFO     LOG:apiKeyWords.py:279 值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+INFO     LOG:apiKeyWords.py:279 值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '7a08d7d0565840caaee29ff56513b8e7'}]
+ERROR    LOG:apiKeyWords.py:310 Execute method 'post' error.
+ERROR    LOG:apiKeyWords.py:311 Expecting value: line 1 column 25 (char 24)
+INFO     LOG:test_api.py:51 Function return value：{'status': 402, 'msg': '参数错误'}
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[assertequals], input:[status], request_data:[402]】
+INFO     LOG:apiKeyWords.py:110 执行函数:assertequals
+INFO     LOG:apiKeyWords.py:152 ----------数据预处理after:--__abs(datan)>>status>>['status']--
+INFO     LOG:apiKeyWords.py:123 key:[status]
+INFO     LOG:apiKeyWords.py:124 ACTUAL_VALUE:[402]
+INFO     LOG:apiKeyWords.py:125 EXPECT_VALUE:[402]
+INFO     LOG:apiKeyWords.py:279 值是：PASS
+INFO     LOG:apiKeyWords.py:137 --Pass--用例成功--
+INFO     LOG:test_api.py:51 Function return value：PASS
+INFO     LOG:test_api.py:55 Write Excel：save_excel_teardown
+INFO     LOG:conftest.py:153 销毁session：<requests.sessions.Session object at 0x0000026362E29E48>
+INFO     LOG:conftest.py:154 ----------requests_session teardown----------
+INFO     LOG:conftest.py:155 ********************测试执行结束********************
+INFO     LOG:conftest.py:156 ****************************************************************************************************
+INFO     LOG:conftest.py:93 测试报告压缩路径：D:\desk20201127\ksgit\Report\2021-10-05_allure_2.zip
+INFO     LOG:conftest.py:100 ------------------------
+INFO     LOG:conftest.py:101 Usage time 0:00:00
+INFO     LOG:conftest.py:102 ------------------------

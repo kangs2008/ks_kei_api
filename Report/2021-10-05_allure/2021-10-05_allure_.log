@@ -1,0 +1,245 @@
+2021-10-05 14:59:49,235 LOG INFO conftest.py-51 line：bbbbbb2021-10-05
+2021-10-05 14:59:49,245 LOG INFO conftest.py-57 line：-----mk_report_dir--：D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 14:59:49,255 LOG INFO conftest.py-79 line：----------传入参数<--file>,测试excel：D:/desk20201127/ksgit/TestCases/
+2021-10-05 14:59:49,255 LOG INFO conftest.py-80 line：----------传入参数<--sheet>,测试excel sheet name：
+2021-10-05 14:59:49,255 LOG INFO conftest.py-81 line：----------传入参数<--report>,指定测试报告文件夹：2021-10-05_allure
+2021-10-05 14:59:49,255 LOG INFO conftest.py-83 line：测试报告文件夹：D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 14:59:49,305 LOG INFO conftest.py-145 line：****************************************************************************************************
+2021-10-05 14:59:49,305 LOG INFO conftest.py-146 line：********************测试执行开始********************
+2021-10-05 14:59:49,305 LOG INFO conftest.py-149 line：----------requests_session setup----------
+2021-10-05 14:59:49,315 LOG INFO conftest.py-150 line：获取session：<requests.sessions.Session object at 0x00000206E30B23C8>
+2021-10-05 14:59:49,315 LOG INFO test_api.py-31 line：TestAPI.BuiltinImporter
+2021-10-05 14:59:49,315 LOG INFO test_api.py-32 line：FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 14:59:49,315 LOG INFO test_api.py-33 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 14:59:49,315 LOG INFO test_api.py-98 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 14:59:49,315 LOG INFO test_api.py-99 line：D:\desk20201127\ksgit\TestCases
+2021-10-05 14:59:49,315 LOG INFO test_api.py-100 line：datas_path
+2021-10-05 14:59:49,315 LOG INFO test_api.py-102 line：a
+2021-10-05 14:59:49,315 LOG INFO test_api.py-103 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 14:59:49,325 LOG INFO test_api.py-104 line：b
+2021-10-05 14:59:49,325 LOG INFO test_api.py-105 line：/test_apidata.xlsx
+2021-10-05 14:59:49,325 LOG INFO test_api.py-106 line：c
+2021-10-05 14:59:49,325 LOG INFO test_api.py-110 line：ctest_apidata.xlsx
+2021-10-05 14:59:49,325 LOG INFO test_api.py-87 line：pppp- D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 14:59:49,325 LOG INFO test_api.py-90 line：zzzzzzzz- D:\desk20201127\ksgit\Report\2021-10-05_allure      -test_apidata_report.xlsx
+2021-10-05 14:59:49,325 LOG INFO test_api.py-93 line：zzz-->>D:\desk20201127\ksgit\Report\2021-10-05_allure\test_apidata_report.xlsx
+2021-10-05 14:59:49,465 LOG INFO test_api.py-39 line：Execute test suite: TestAPI
+2021-10-05 14:59:49,465 LOG INFO test_api.py-40 line：Execute test case: t_接
+2021-10-05 14:59:49,465 LOG INFO test_api.py-60 line：Test title：充1
+2021-10-05 14:59:49,465 LOG INFO test_api.py-77 line：Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-259 line：执行函数:seturl
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-262 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-279 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+2021-10-05 14:59:49,465 LOG INFO test_api.py-51 line：Function return value：None
+2021-10-05 14:59:49,465 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-282 line：执行函数:【'post'】
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-279 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-279 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+2021-10-05 14:59:49,465 LOG INFO apiKeyWords.py-279 line：值是：请求体:[None]
+2021-10-05 14:59:49,565 LOG INFO apiKeyWords.py-279 line：值是：返回值:[{'status': 200, 'msg': 'success', 'token': '462bc4f1cc9f4fd9bd2e19fd242f21b7'}]
+2021-10-05 14:59:49,565 LOG INFO test_api.py-51 line：Function return value：{'status': 200, 'msg': 'success', 'token': '462bc4f1cc9f4fd9bd2e19fd242f21b7'}
+2021-10-05 14:59:49,685 LOG INFO test_api.py-55 line：Write Excel：save_excel_teardown
+2021-10-05 14:59:49,685 LOG INFO conftest.py-153 line：销毁session：<requests.sessions.Session object at 0x00000206E30B23C8>
+2021-10-05 14:59:49,685 LOG INFO conftest.py-154 line：----------requests_session teardown----------
+2021-10-05 14:59:49,685 LOG INFO conftest.py-155 line：********************测试执行结束********************
+2021-10-05 14:59:49,685 LOG INFO conftest.py-156 line：****************************************************************************************************
+2021-10-05 14:59:49,695 LOG INFO conftest.py-93 line：测试报告压缩路径：D:\desk20201127\ksgit\Report\2021-10-05_allure_.zip
+2021-10-05 14:59:49,695 LOG INFO conftest.py-100 line：------------------------
+2021-10-05 14:59:49,695 LOG INFO conftest.py-101 line：Usage time 0:00:00
+2021-10-05 14:59:49,695 LOG INFO conftest.py-102 line：------------------------
+2021-10-05 15:00:52,692 LOG INFO conftest.py-51 line：bbbbbb2021-10-05
+2021-10-05 15:00:52,692 LOG INFO conftest.py-57 line：-----mk_report_dir--：D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 15:00:52,702 LOG INFO conftest.py-79 line：----------传入参数<--file>,测试excel：D:/desk20201127/ksgit/TestCases/
+2021-10-05 15:00:52,702 LOG INFO conftest.py-80 line：----------传入参数<--sheet>,测试excel sheet name：
+2021-10-05 15:00:52,702 LOG INFO conftest.py-81 line：----------传入参数<--report>,指定测试报告文件夹：2021-10-05_allure
+2021-10-05 15:00:52,702 LOG INFO conftest.py-83 line：测试报告文件夹：D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 15:00:52,702 LOG INFO conftest.py-145 line：****************************************************************************************************
+2021-10-05 15:00:52,702 LOG INFO conftest.py-146 line：********************测试执行开始********************
+2021-10-05 15:00:52,702 LOG INFO conftest.py-149 line：----------requests_session setup----------
+2021-10-05 15:00:52,702 LOG INFO conftest.py-150 line：获取session：<requests.sessions.Session object at 0x00000230FEB81048>
+2021-10-05 15:00:52,702 LOG INFO test_api.py-31 line：TestAPI.BuiltinImporter
+2021-10-05 15:00:52,702 LOG INFO test_api.py-32 line：FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-33 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-98 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-99 line：D:\desk20201127\ksgit\TestCases
+2021-10-05 15:00:52,712 LOG INFO test_api.py-100 line：datas_path
+2021-10-05 15:00:52,712 LOG INFO test_api.py-102 line：a
+2021-10-05 15:00:52,712 LOG INFO test_api.py-103 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-104 line：b
+2021-10-05 15:00:52,712 LOG INFO test_api.py-105 line：/test_apidata.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-106 line：c
+2021-10-05 15:00:52,712 LOG INFO test_api.py-110 line：ctest_apidata.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-87 line：pppp- D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 15:00:52,712 LOG INFO test_api.py-90 line：zzzzzzzz- D:\desk20201127\ksgit\Report\2021-10-05_allure      -test_apidata_report.xlsx
+2021-10-05 15:00:52,712 LOG INFO test_api.py-93 line：zzz-->>D:\desk20201127\ksgit\Report\2021-10-05_allure\test_apidata_report.xlsx
+2021-10-05 15:00:52,812 LOG INFO test_api.py-39 line：Execute test suite: TestAPI
+2021-10-05 15:00:52,812 LOG INFO test_api.py-40 line：Execute test case: t_接
+2021-10-05 15:00:52,812 LOG INFO test_api.py-60 line：Test title：充1
+2021-10-05 15:00:52,812 LOG INFO test_api.py-77 line：Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-259 line：执行函数:seturl
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-262 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-279 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+2021-10-05 15:00:52,812 LOG INFO test_api.py-51 line：Function return value：None
+2021-10-05 15:00:52,812 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-282 line：执行函数:【'post'】
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-279 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-279 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+2021-10-05 15:00:52,812 LOG INFO apiKeyWords.py-279 line：值是：请求体:[None]
+2021-10-05 15:00:52,902 LOG INFO apiKeyWords.py-279 line：值是：返回值:[{'status': 200, 'msg': 'success', 'token': 'b021e91b99264b0098e65edd9a27bb8a'}]
+2021-10-05 15:00:52,902 LOG INFO test_api.py-51 line：Function return value：{'status': 200, 'msg': 'success', 'token': 'b021e91b99264b0098e65edd9a27bb8a'}
+2021-10-05 15:00:52,982 LOG INFO test_api.py-55 line：Write Excel：save_excel_teardown
+2021-10-05 15:00:52,982 LOG INFO conftest.py-153 line：销毁session：<requests.sessions.Session object at 0x00000230FEB81048>
+2021-10-05 15:00:52,982 LOG INFO conftest.py-154 line：----------requests_session teardown----------
+2021-10-05 15:00:52,982 LOG INFO conftest.py-155 line：********************测试执行结束********************
+2021-10-05 15:00:52,982 LOG INFO conftest.py-156 line：****************************************************************************************************
+2021-10-05 15:00:53,142 LOG INFO conftest.py-93 line：测试报告压缩路径：D:\desk20201127\ksgit\Report\2021-10-05_allure_1.zip
+2021-10-05 15:00:53,142 LOG INFO conftest.py-100 line：------------------------
+2021-10-05 15:00:53,142 LOG INFO conftest.py-101 line：Usage time 0:00:00
+2021-10-05 15:00:53,142 LOG INFO conftest.py-102 line：------------------------
+2021-10-05 15:01:44,870 LOG INFO conftest.py-51 line：bbbbbb2021-10-05
+2021-10-05 15:01:44,870 LOG INFO conftest.py-57 line：-----mk_report_dir--：D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 15:01:44,880 LOG INFO conftest.py-79 line：----------传入参数<--file>,测试excel：D:/desk20201127/ksgit/TestCases/
+2021-10-05 15:01:44,880 LOG INFO conftest.py-80 line：----------传入参数<--sheet>,测试excel sheet name：
+2021-10-05 15:01:44,880 LOG INFO conftest.py-81 line：----------传入参数<--report>,指定测试报告文件夹：2021-10-05_allure
+2021-10-05 15:01:44,880 LOG INFO conftest.py-83 line：测试报告文件夹：D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 15:01:44,880 LOG INFO conftest.py-145 line：****************************************************************************************************
+2021-10-05 15:01:44,880 LOG INFO conftest.py-146 line：********************测试执行开始********************
+2021-10-05 15:01:44,880 LOG INFO conftest.py-149 line：----------requests_session setup----------
+2021-10-05 15:01:44,880 LOG INFO conftest.py-150 line：获取session：<requests.sessions.Session object at 0x0000026362E29E48>
+2021-10-05 15:01:44,890 LOG INFO test_api.py-31 line：TestAPI.BuiltinImporter
+2021-10-05 15:01:44,890 LOG INFO test_api.py-32 line：FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-33 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-98 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-99 line：D:\desk20201127\ksgit\TestCases
+2021-10-05 15:01:44,890 LOG INFO test_api.py-100 line：datas_path
+2021-10-05 15:01:44,890 LOG INFO test_api.py-102 line：a
+2021-10-05 15:01:44,890 LOG INFO test_api.py-103 line：D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-104 line：b
+2021-10-05 15:01:44,890 LOG INFO test_api.py-105 line：/test_apidata.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-106 line：c
+2021-10-05 15:01:44,890 LOG INFO test_api.py-110 line：ctest_apidata.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-87 line：pppp- D:\desk20201127\ksgit\Report\2021-10-05_allure
+2021-10-05 15:01:44,890 LOG INFO test_api.py-90 line：zzzzzzzz- D:\desk20201127\ksgit\Report\2021-10-05_allure      -test_apidata_report.xlsx
+2021-10-05 15:01:44,890 LOG INFO test_api.py-93 line：zzz-->>D:\desk20201127\ksgit\Report\2021-10-05_allure\test_apidata_report.xlsx
+2021-10-05 15:01:44,990 LOG INFO test_api.py-39 line：Execute test suite: TestAPI
+2021-10-05 15:01:44,990 LOG INFO test_api.py-40 line：Execute test case: t_接
+2021-10-05 15:01:45,000 LOG INFO test_api.py-60 line：Test title：充1
+2021-10-05 15:01:45,000 LOG INFO test_api.py-77 line：Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-259 line：执行函数:seturl
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-262 line：输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-279 line：值是：http://testingedu.com.cn:8081/inter/HTTP
+2021-10-05 15:01:45,000 LOG INFO test_api.py-51 line：Function return value：None
+2021-10-05 15:01:45,000 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-282 line：执行函数:【'post'】
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-279 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-279 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+2021-10-05 15:01:45,000 LOG INFO apiKeyWords.py-279 line：值是：请求体:[None]
+2021-10-05 15:01:45,160 LOG INFO apiKeyWords.py-279 line：值是：返回值:[{'status': 200, 'msg': 'success', 'token': '7a08d7d0565840caaee29ff56513b8e7'}]
+2021-10-05 15:01:45,170 LOG INFO test_api.py-51 line：Function return value：{'status': 200, 'msg': 'success', 'token': '7a08d7d0565840caaee29ff56513b8e7'}
+2021-10-05 15:01:45,170 LOG INFO test_api.py-60 line：Test title：充2
+2021-10-05 15:01:45,170 LOG INFO test_api.py-77 line：Test datas:【title:[充2], method:[savejson], input:[token1], request_data:[token]】
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-215 line：执行函数:savejson
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-152 line：----------数据预处理after:--__abs(datan)>>token>>['token']--
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-222 line：relations_key:[token1]
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-223 line：jsonres_key:[['token']]
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-224 line：self.relations[token1] = self.jsonres['token']
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-279 line：值是：7a08d7d0565840caaee29ff56513b8e7
+2021-10-05 15:01:45,170 LOG INFO test_api.py-51 line：Function return value：{'token1': '7a08d7d0565840caaee29ff56513b8e7'}
+2021-10-05 15:01:45,170 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[addheader], input:[token], request_data:[${token1}]】
+2021-10-05 15:01:45,170 LOG INFO apiKeyWords.py-241 line：执行函数:addheader
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-244 line：headers_key:[token]
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-245 line：headers_value_before:[${token1}]
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-29 line：----------数据预处理after:--self.relations[token1]>>7a08d7d0565840caaee29ff56513b8e7--
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-247 line：headers_value_after(__get_relations):[7a08d7d0565840caaee29ff56513b8e7]
+2021-10-05 15:01:45,180 LOG INFO test_api.py-51 line：Function return value：{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '7a08d7d0565840caaee29ff56513b8e7'}
+2021-10-05 15:01:45,180 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[savedata], input:[password], request_data:[${pwd}]】
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-192 line：执行函数:savedata
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-198 line：relations_key:[password]
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-199 line：relations_value:[${pwd}]
+2021-10-05 15:01:45,180 LOG INFO apiKeyWords.py-200 line：self.relations[password] = ${pwd}
+2021-10-05 15:01:45,180 LOG INFO test_api.py-51 line：Function return value：{'password': '${pwd}'}
+2021-10-05 15:01:45,190 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[savedata], input:[user1], request_data:[康]】
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-192 line：执行函数:savedata
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-198 line：relations_key:[user1]
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-199 line：relations_value:[康]
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-200 line：self.relations[user1] = 康
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-279 line：值是：康
+2021-10-05 15:01:45,190 LOG INFO test_api.py-51 line：Function return value：{'user1': '康'}
+2021-10-05 15:01:45,190 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[savedata], input:[user2], request_data:[是]】
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-192 line：执行函数:savedata
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-198 line：relations_key:[user2]
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-199 line：relations_value:[是]
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-200 line：self.relations[user2] = 是
+2021-10-05 15:01:45,190 LOG INFO apiKeyWords.py-279 line：值是：是
+2021-10-05 15:01:45,200 LOG INFO test_api.py-51 line：Function return value：{'user2': '是'}
+2021-10-05 15:01:45,200 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[saveparam], input:[token], request_data:[${token1}]】
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-166 line：执行函数:saveparam
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-29 line：----------数据预处理after:--self.relations[token1]>>7a08d7d0565840caaee29ff56513b8e7--
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-176 line：saveparam_key:[token]
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-177 line：saveparam_value:[7a08d7d0565840caaee29ff56513b8e7]
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-178 line：self.param[token] = 7a08d7d0565840caaee29ff56513b8e7
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-279 line：值是：{'token': '7a08d7d0565840caaee29ff56513b8e7'}
+2021-10-05 15:01:45,200 LOG INFO test_api.py-51 line：Function return value：{'token': '7a08d7d0565840caaee29ff56513b8e7'}
+2021-10-05 15:01:45,200 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[saveparam], input:[aaa], request_data:[啊]】
+2021-10-05 15:01:45,200 LOG INFO apiKeyWords.py-166 line：执行函数:saveparam
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-176 line：saveparam_key:[aaa]
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-177 line：saveparam_value:[啊]
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-178 line：self.param[aaa] = 啊
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-279 line：值是：{'token': '7a08d7d0565840caaee29ff56513b8e7', 'aaa': '啊'}
+2021-10-05 15:01:45,210 LOG INFO test_api.py-51 line：Function return value：{'aaa': '啊'}
+2021-10-05 15:01:45,210 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[saveparam], input:[user], request_data:[${user1}]】
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-166 line：执行函数:saveparam
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-29 line：----------数据预处理after:--self.relations[user1]>>康--
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-176 line：saveparam_key:[user]
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-177 line：saveparam_value:[康]
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-178 line：self.param[user] = 康
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-279 line：值是：{'token': '7a08d7d0565840caaee29ff56513b8e7', 'aaa': '啊', 'user': '康'}
+2021-10-05 15:01:45,210 LOG INFO test_api.py-51 line：Function return value：{'user': '康'}
+2021-10-05 15:01:45,210 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": "", "nickname":"熊明"}]】
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-282 line：执行函数:【'post'】
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-279 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-279 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '7a08d7d0565840caaee29ff56513b8e7'}]
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-38 line：----------数据预处理before:--json.loads(paramn)>><class 'str'>>>{"username": "", "pwd": "", "nickname":"熊明"}--
+2021-10-05 15:01:45,210 LOG INFO apiKeyWords.py-39 line：----------数据预处理after :--json.loads(paramn)>><class 'dict'>>>{'username': '', 'pwd': '', 'nickname': '熊明'}--
+2021-10-05 15:01:45,220 LOG INFO apiKeyWords.py-279 line：值是：请求体:[{'username': '', 'pwd': '', 'nickname': '熊明'}]
+2021-10-05 15:01:45,260 LOG INFO apiKeyWords.py-279 line：值是：返回值:[{'status': 402, 'msg': '参数错误'}]
+2021-10-05 15:01:45,260 LOG INFO test_api.py-51 line：Function return value：{'status': 402, 'msg': '参数错误'}
+2021-10-05 15:01:45,260 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[assertequals], input:[status], request_data:[200]】
+2021-10-05 15:01:45,260 LOG INFO apiKeyWords.py-110 line：执行函数:assertequals
+2021-10-05 15:01:45,260 LOG INFO apiKeyWords.py-152 line：----------数据预处理after:--__abs(datan)>>status>>['status']--
+2021-10-05 15:01:45,260 LOG INFO apiKeyWords.py-123 line：key:[status]
+2021-10-05 15:01:45,270 LOG INFO apiKeyWords.py-124 line：ACTUAL_VALUE:[402]
+2021-10-05 15:01:45,270 LOG INFO apiKeyWords.py-125 line：EXPECT_VALUE:[200]
+2021-10-05 15:01:45,270 LOG INFO apiKeyWords.py-279 line：值是：FAIL
+2021-10-05 15:01:45,270 LOG INFO apiKeyWords.py-131 line：--Fail--用例失败--
+2021-10-05 15:01:45,270 LOG ERROR apiKeyWords.py-132 line：
+Traceback (most recent call last):
+  File "D:\desk20201127\ksgit\Apikeywords\apiKeyWords.py", line 128, in assertequals
+    assert actual_value == expect_value
+AssertionError
+2021-10-05 15:01:45,360 LOG INFO test_api.py-51 line：Function return value：FAIL
+2021-10-05 15:01:45,360 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[post], input:[register], request_data:[{"username": "", "pwd": ${password}, "nickname":"熊明"}]】
+2021-10-05 15:01:45,360 LOG INFO apiKeyWords.py-282 line：执行函数:【'post'】
+2021-10-05 15:01:45,360 LOG INFO apiKeyWords.py-279 line：值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/register]
+2021-10-05 15:01:45,360 LOG INFO apiKeyWords.py-279 line：值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '7a08d7d0565840caaee29ff56513b8e7'}]
+2021-10-05 15:01:45,380 LOG ERROR apiKeyWords.py-310 line：Execute method 'post' error.
+2021-10-05 15:01:45,380 LOG ERROR apiKeyWords.py-311 line：Expecting value: line 1 column 25 (char 24)
+2021-10-05 15:01:45,380 LOG INFO test_api.py-51 line：Function return value：{'status': 402, 'msg': '参数错误'}
+2021-10-05 15:01:45,380 LOG INFO test_api.py-77 line：Test datas:【title:[], method:[assertequals], input:[status], request_data:[402]】
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-110 line：执行函数:assertequals
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-152 line：----------数据预处理after:--__abs(datan)>>status>>['status']--
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-123 line：key:[status]
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-124 line：ACTUAL_VALUE:[402]
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-125 line：EXPECT_VALUE:[402]
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-279 line：值是：PASS
+2021-10-05 15:01:45,380 LOG INFO apiKeyWords.py-137 line：--Pass--用例成功--
+2021-10-05 15:01:45,380 LOG INFO test_api.py-51 line：Function return value：PASS
+2021-10-05 15:01:45,480 LOG INFO test_api.py-55 line：Write Excel：save_excel_teardown
+2021-10-05 15:01:45,490 LOG INFO conftest.py-153 line：销毁session：<requests.sessions.Session object at 0x0000026362E29E48>
+2021-10-05 15:01:45,490 LOG INFO conftest.py-154 line：----------requests_session teardown----------
+2021-10-05 15:01:45,490 LOG INFO conftest.py-155 line：********************测试执行结束********************
+2021-10-05 15:01:45,490 LOG INFO conftest.py-156 line：****************************************************************************************************
+2021-10-05 15:01:45,680 LOG INFO conftest.py-93 line：测试报告压缩路径：D:\desk20201127\ksgit\Report\2021-10-05_allure_2.zip
+2021-10-05 15:01:45,680 LOG INFO conftest.py-100 line：------------------------
+2021-10-05 15:01:45,680 LOG INFO conftest.py-101 line：Usage time 0:00:00
+2021-10-05 15:01:45,680 LOG INFO conftest.py-102 line：------------------------

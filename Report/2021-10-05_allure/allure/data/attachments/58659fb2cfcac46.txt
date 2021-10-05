@@ -1,0 +1,49 @@
+INFO     LOG:conftest.py:51 bbbbbb2021-10-05
+INFO     LOG:conftest.py:57 -----mk_report_dir--：D:\desk20201127\ksgit\Report\2021-10-05_allure
+INFO     LOG:conftest.py:79 ----------传入参数<--file>,测试excel：D:/desk20201127/ksgit/TestCases/
+INFO     LOG:conftest.py:80 ----------传入参数<--sheet>,测试excel sheet name：
+INFO     LOG:conftest.py:81 ----------传入参数<--report>,指定测试报告文件夹：2021-10-05_allure
+INFO     LOG:conftest.py:83 测试报告文件夹：D:\desk20201127\ksgit\Report\2021-10-05_allure
+INFO     LOG:conftest.py:145 ****************************************************************************************************
+INFO     LOG:conftest.py:146 ********************测试执行开始********************
+INFO     LOG:conftest.py:149 ----------requests_session setup----------
+INFO     LOG:conftest.py:150 获取session：<requests.sessions.Session object at 0x00000206E30B23C8>
+INFO     LOG:test_api.py:31 TestAPI.BuiltinImporter
+INFO     LOG:test_api.py:32 FILE SHEET： t_接  FILE NAME： test_apidata.xlsx  FILE PATH： D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:33 D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:98 D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:99 D:\desk20201127\ksgit\TestCases
+INFO     LOG:test_api.py:100 datas_path
+INFO     LOG:test_api.py:102 a
+INFO     LOG:test_api.py:103 D:/desk20201127/ksgit/TestCases/test_apidata.xlsx
+INFO     LOG:test_api.py:104 b
+INFO     LOG:test_api.py:105 /test_apidata.xlsx
+INFO     LOG:test_api.py:106 c
+INFO     LOG:test_api.py:110 ctest_apidata.xlsx
+INFO     LOG:test_api.py:87 pppp- D:\desk20201127\ksgit\Report\2021-10-05_allure
+INFO     LOG:test_api.py:90 zzzzzzzz- D:\desk20201127\ksgit\Report\2021-10-05_allure      -test_apidata_report.xlsx
+INFO     LOG:test_api.py:93 zzz-->>D:\desk20201127\ksgit\Report\2021-10-05_allure\test_apidata_report.xlsx
+INFO     LOG:test_api.py:39 Execute test suite: TestAPI
+INFO     LOG:test_api.py:40 Execute test case: t_接
+INFO     LOG:test_api.py:60 Test title：充1
+INFO     LOG:test_api.py:77 Test datas:【title:[充1], method:[seturl], input:[http://testingedu.com.cn:8081/inter/HTTP], request_data:[康]】
+INFO     LOG:apiKeyWords.py:259 执行函数:seturl
+INFO     LOG:apiKeyWords.py:262 输入参数:[http://testingedu.com.cn:8081/inter/HTTP]
+INFO     LOG:apiKeyWords.py:279 值是：http://testingedu.com.cn:8081/inter/HTTP
+INFO     LOG:test_api.py:51 Function return value：None
+INFO     LOG:test_api.py:77 Test datas:【title:[], method:[post], input:[auth], request_data:[]】
+INFO     LOG:apiKeyWords.py:282 执行函数:【'post'】
+INFO     LOG:apiKeyWords.py:279 值是：请求接口:[http://testingedu.com.cn:8081/inter/HTTP/auth]
+INFO     LOG:apiKeyWords.py:279 值是：请求头:[{'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}]
+INFO     LOG:apiKeyWords.py:279 值是：请求体:[None]
+INFO     LOG:apiKeyWords.py:279 值是：返回值:[{'status': 200, 'msg': 'success', 'token': '462bc4f1cc9f4fd9bd2e19fd242f21b7'}]
+INFO     LOG:test_api.py:51 Function return value：{'status': 200, 'msg': 'success', 'token': '462bc4f1cc9f4fd9bd2e19fd242f21b7'}
+INFO     LOG:test_api.py:55 Write Excel：save_excel_teardown
+INFO     LOG:conftest.py:153 销毁session：<requests.sessions.Session object at 0x00000206E30B23C8>
+INFO     LOG:conftest.py:154 ----------requests_session teardown----------
+INFO     LOG:conftest.py:155 ********************测试执行结束********************
+INFO     LOG:conftest.py:156 ****************************************************************************************************
+INFO     LOG:conftest.py:93 测试报告压缩路径：D:\desk20201127\ksgit\Report\2021-10-05_allure_.zip
+INFO     LOG:conftest.py:100 ------------------------
+INFO     LOG:conftest.py:101 Usage time 0:00:00
+INFO     LOG:conftest.py:102 ------------------------
